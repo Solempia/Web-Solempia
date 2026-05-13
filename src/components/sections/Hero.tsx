@@ -41,8 +41,14 @@ export default function Hero() {
       >
         {/* Main */}
         <div>
-          <motion.div variants={item} className="mb-7">
-            <Eyebrow>(SE-001/) automatización · ia · gobernanza</Eyebrow>
+          <motion.div variants={item} className="mb-7 inline-flex items-center gap-3">
+            <span
+              aria-hidden="true"
+              className="h-1.5 w-1.5 rounded-full bg-accent animate-status-breathe"
+            />
+            <Eyebrow withDash={false}>
+              (SE-001/) automatización · ia · gobernanza
+            </Eyebrow>
           </motion.div>
 
           <motion.h1

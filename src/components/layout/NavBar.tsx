@@ -36,7 +36,7 @@ export default function NavBar() {
             <li key={href}>
               <a
                 href={href}
-                className="text-sm text-muted hover:text-ink transition-colors"
+                className="nav-link relative text-sm text-muted hover:text-ink transition-colors"
               >
                 {label}
               </a>

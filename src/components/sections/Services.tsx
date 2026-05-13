@@ -1,11 +1,12 @@
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import Eyebrow from "@/components/ui/Eyebrow";
+import { Reveal, StaggerList, StaggerItem } from "@/components/ui/Motion";
 import { services } from "@/data/services";
 
 export default function Services() {
   return (
     <SectionWrapper id="servicios">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-end mb-16">
+      <Reveal className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-end mb-16">
         <div>
           <Eyebrow>servicios_</Eyebrow>
           <h2 className="mt-5 font-sans font-medium text-4xl md:text-5xl -tracking-tight leading-[1.1]">
@@ -18,15 +19,15 @@ export default function Services() {
           No todo lo de aquí encaja en todos los proyectos. La clasificación del
           paso 02 decide qué aplica — y qué no.
         </p>
-      </div>
+      </Reveal>
 
-      <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-line border border-line">
+      <StaggerList className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-line border border-line">
         {services.map((s) => (
-          <li
+          <StaggerItem
             key={s.code}
             className="group relative bg-surface p-8 transition-colors duration-300 hover:bg-bg"
           >
-            <div className="font-mono text-xs uppercase tracking-[0.16em] text-muted mb-8">
+            <div className="font-mono text-xs uppercase tracking-[0.16em] text-muted mb-8 transition-colors duration-300 group-hover:text-accent">
               {s.code}
             </div>
             <h3 className="font-sans font-medium text-lg text-ink mb-3">
@@ -41,9 +42,9 @@ export default function Services() {
             >
               →
             </span>
-          </li>
+          </StaggerItem>
         ))}
-      </ul>
+      </StaggerList>
     </SectionWrapper>
   );
 }

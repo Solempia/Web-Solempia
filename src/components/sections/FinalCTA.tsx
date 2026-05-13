@@ -1,5 +1,6 @@
 import Eyebrow from "@/components/ui/Eyebrow";
 import Button from "@/components/ui/Button";
+import { Reveal } from "@/components/ui/Motion";
 import { site } from "@/data/site";
 
 const waMessage = "Hola, quiero empezar una conversación sobre automatización.";
@@ -13,7 +14,7 @@ export default function FinalCTA() {
       id="contacto"
       className="border-t border-line py-32 md:py-40 px-6"
     >
-      <div className="max-w-2xl mx-auto text-center">
+      <Reveal className="max-w-2xl mx-auto text-center">
         <div className="flex justify-center">
           <Eyebrow>contacto_</Eyebrow>
         </div>
@@ -44,7 +45,7 @@ export default function FinalCTA() {
             WhatsApp
           </Button>
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }

@@ -1,7 +1,4 @@
 export const marqueeItems: string[] = [
-  "construye_",
-  "enseña_",
-  "gobierna_",
   "agentes de ia",
   "automatización de procesos",
   "chatbots",
