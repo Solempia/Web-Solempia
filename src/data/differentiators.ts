@@ -5,18 +5,18 @@ export interface Differentiator {
 
 export const differentiators: Differentiator[] = [
   {
+    title: "Decimos qué no construir",
+    description:
+      "La mayoría de los flujos no pertenecen a la IA. Si una hoja de cálculo lo resuelve, no construimos un agente.",
+  },
+  {
     title: "Sin plazos forzosos",
     description:
-      "Pausa o cancela cuando quieras. Trabajamos por resultados, no por contrato.",
+      "Pausa o cancela cuando quieras. No hay contratos anuales ni penalizaciones de salida.",
   },
   {
-    title: "Enfocados en resultados",
+    title: "Si algo deja de servir, lo retiramos",
     description:
-      "No buscamos impresionar con tecnología. Buscamos que vendas más, gastes menos o recuperes tiempo.",
-  },
-  {
-    title: "Garantía de resultados",
-    description:
-      "Si no cumplimos lo acordado, devolvemos la inversión. Así de simple.",
+      "La gobernanza se integra desde el día uno: evaluación, métricas y reglas operativas. Sin sistemas zombies.",
   },
 ];

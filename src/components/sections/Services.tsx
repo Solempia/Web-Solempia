@@ -7,16 +7,16 @@ export default function Services() {
     <SectionWrapper id="servicios">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-end mb-16">
         <div>
-          <Eyebrow>Lo que hacemos</Eyebrow>
+          <Eyebrow>servicios_</Eyebrow>
           <h2 className="mt-5 font-sans font-medium text-4xl md:text-5xl -tracking-tight leading-[1.1]">
-            Nuestros
+            Lo que entra
             <br />
-            <span className="text-accent">servicios.</span>
+            <span className="text-accent">en el alcance.</span>
           </h2>
         </div>
         <p className="text-base text-muted leading-relaxed max-w-md md:justify-self-end">
-          Automatización e inteligencia artificial aplicada a los procesos que
-          más tiempo y dinero cuestan.
+          No todo lo de aquí encaja en todos los proyectos. La clasificación del
+          paso 02 decide qué aplica — y qué no.
         </p>
       </div>
 

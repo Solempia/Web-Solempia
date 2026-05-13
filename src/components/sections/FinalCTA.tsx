@@ -2,7 +2,7 @@ import Eyebrow from "@/components/ui/Eyebrow";
 import Button from "@/components/ui/Button";
 import { site } from "@/data/site";
 
-const waMessage = "Hola, quiero información sobre automatización.";
+const waMessage = "Hola, quiero empezar una conversación sobre automatización.";
 const waLink = `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(
   waMessage
 )}`;
@@ -15,16 +15,16 @@ export default function FinalCTA() {
     >
       <div className="max-w-2xl mx-auto text-center">
         <div className="flex justify-center">
-          <Eyebrow>¿Listo para automatizar?</Eyebrow>
+          <Eyebrow>contacto_</Eyebrow>
         </div>
         <h2 className="mt-5 font-sans font-medium text-4xl md:text-5xl -tracking-tight leading-[1.1]">
-          Cuéntanos qué necesitas.
+          Empieza una
           <br />
-          <span className="text-accent">Lo hacemos realidad.</span>
+          <span className="text-accent">conversación.</span>
         </h2>
         <p className="mt-6 text-base text-muted leading-relaxed">
-          Completa el formulario o escríbenos por WhatsApp. En menos de 24
-          horas agendamos una llamada para presentar la solución.
+          Cuéntanos qué flujo te está costando tiempo. En menos de 24 horas
+          respondemos con una primera lectura — sin compromiso, sin pitch.
         </p>
         <div className="mt-10 flex flex-wrap gap-3 justify-center">
           <Button
@@ -33,7 +33,7 @@ export default function FinalCTA() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Quiero empezar →
+            Escríbenos →
           </Button>
           <Button
             href={waLink}
@@ -41,7 +41,7 @@ export default function FinalCTA() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Prefiero WhatsApp
+            WhatsApp
           </Button>
         </div>
       </div>

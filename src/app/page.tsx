@@ -1,9 +1,11 @@
 import Hero from "@/components/sections/Hero";
 import Marquee from "@/components/sections/Marquee";
-import About from "@/components/sections/About";
-import Services from "@/components/sections/Services";
+import Pillars from "@/components/sections/Pillars";
 import Process from "@/components/sections/Process";
+import Services from "@/components/sections/Services";
+import Case from "@/components/sections/Case";
 import WhyUs from "@/components/sections/WhyUs";
+import Team from "@/components/sections/Team";
 import FinalCTA from "@/components/sections/FinalCTA";
 
 export default function Home() {
@@ -11,10 +13,12 @@ export default function Home() {
     <main>
       <Hero />
       <Marquee />
-      <About />
-      <Services />
+      <Pillars />
       <Process />
+      <Services />
+      <Case />
       <WhyUs />
+      <Team />
       <FinalCTA />
     </main>
   );

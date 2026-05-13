@@ -7,26 +7,32 @@ export interface ProcessStep {
 export const process: ProcessStep[] = [
   {
     code: "01",
-    title: "Diagnóstico",
+    title: "Aprende el flujo",
     description:
-      "Estudiamos el negocio, los procesos actuales y la mayor oportunidad de automatización.",
+      "Mapeamos lo que tu equipo hace cada día — antes de construir o entrenar nada.",
   },
   {
     code: "02",
-    title: "Diseño",
+    title: "Clasifica el trabajo",
     description:
-      "Creamos la solución a medida — flujos, agentes, integraciones. Nada genérico.",
+      "Decidimos qué se resuelve con software tradicional, qué con reglas, qué con IA — y qué no se debería construir.",
   },
   {
     code: "03",
-    title: "Implementación",
+    title: "Forma al equipo",
     description:
-      "Construimos y configuramos todo. El cliente revisa y aprueba en cada etapa.",
+      "Los talleres funcionan como descubrimiento y entrega: tu gente aprende construyendo con sus propios datos.",
   },
   {
     code: "04",
-    title: "Soporte",
+    title: "Construye lo que importa",
     description:
-      "No desaparecemos. Monitorizamos, ajustamos y mejoramos de forma continua.",
+      "Sistemas, no demos. Con tu equipo dentro para garantizar el mantenimiento posterior.",
+  },
+  {
+    code: "05",
+    title: "Gobierna lo que queda",
+    description:
+      "Adjuntamos evaluación, revisión de riesgos y reglas operativas. Si algo deja de servir, lo retiramos.",
   },
 ];

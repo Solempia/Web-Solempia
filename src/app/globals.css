@@ -36,3 +36,19 @@ body {
     background-color: var(--color-line);
   }
 }
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 32s linear infinite;
+}
+
+@keyframes wa-ring {
+  0% { transform: scale(1); opacity: 0.7; }
+  100% { transform: scale(1.7); opacity: 0; }
+}
+.animate-wa-ring {
+  animation: wa-ring 3s ease-out infinite;
+}

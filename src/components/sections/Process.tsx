@@ -5,41 +5,39 @@ import { process } from "@/data/process";
 export default function Process() {
   return (
     <SectionWrapper id="proceso">
-      <div className="text-center mb-20">
-        <div className="flex justify-center">
-          <Eyebrow>Cómo trabajamos</Eyebrow>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-end mb-16">
+        <div>
+          <Eyebrow>(SE-METHOD/) los 05 pasos</Eyebrow>
+          <h2 className="mt-5 font-sans font-medium text-4xl md:text-5xl -tracking-tight leading-[1.1]">
+            Una secuencia
+            <br />
+            <span className="text-accent">sin atajos.</span>
+          </h2>
         </div>
-        <h2 className="mt-5 font-sans font-medium text-4xl md:text-5xl -tracking-tight leading-[1.1]">
-          Simple, claro y<br />
-          <span className="text-accent">sin sorpresas.</span>
-        </h2>
-        <p className="mt-5 mx-auto max-w-md text-base text-muted leading-relaxed">
-          Desde la primera conversación hasta el sistema corriendo — así es
-          nuestro proceso.
+        <p className="text-base text-muted leading-relaxed max-w-md md:justify-self-end">
+          Cada engagement sigue esta secuencia. El paso 02 es el más
+          importante — y el que la mayoría de agencias evita.
         </p>
       </div>
 
-      <div className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
-        {/* Connector line — solo desktop */}
-        <div
-          aria-hidden="true"
-          className="hidden lg:block absolute top-9 left-[12%] right-[12%] h-px bg-line"
-        />
-
+      <ul className="border-t border-line">
         {process.map((step) => (
-          <div key={step.code} className="relative text-center px-2">
-            <div className="mx-auto mb-7 w-[72px] h-[72px] rounded-full border border-line bg-bg flex items-center justify-center font-mono text-base font-medium text-ink relative z-10">
+          <li
+            key={step.code}
+            className="border-b border-line grid grid-cols-[64px_1fr] md:grid-cols-[120px_240px_1fr] gap-6 md:gap-10 py-8 md:py-10"
+          >
+            <div className="font-mono text-sm text-muted pt-1">
               {step.code}
             </div>
-            <h3 className="font-sans font-medium text-lg text-ink mb-2">
+            <h3 className="font-sans font-medium text-xl md:text-2xl -tracking-tight text-ink leading-tight md:col-span-1 col-span-1">
               {step.title}
             </h3>
-            <p className="text-sm text-muted leading-relaxed">
+            <p className="text-sm md:text-base text-muted leading-relaxed col-span-2 md:col-span-1 max-w-xl">
               {step.description}
             </p>
-          </div>
+          </li>
         ))}
-      </div>
+      </ul>
     </SectionWrapper>
   );
 }

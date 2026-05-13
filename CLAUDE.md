@@ -2,6 +2,8 @@
 
 Landing single-page de agencia de IA y automatización. Next.js 16 estático, deploy a GitHub Pages. Copy en español.
 
+**Postura editorial inspirada en EDUBA**: anti-hype, sobria, declarativa. Decir qué **no** construir es parte del modelo. Identidad visual: minimalismo tech premium europeo (Linear/Stripe/Vercel) con acentos terminal-editoriales (slugs mono tipo `construye_`, códigos `(SE-001/)`).
+
 **Antes de tocar copy o estilos**, leer `docs/brand-voice.md` y `docs/design-tokens.md`. Hay anti-clichés visuales explícitamente vetados.
 
 ---
@@ -76,19 +78,22 @@ text-accent    (#1E2952 — azul tinta, único acento)
 | File | Purpose |
 |---|---|
 | `src/app/layout.tsx` | root layout: fuentes, metadata, NavBar, Footer, WhatsAppFloat |
-| `src/app/page.tsx` | composición: Hero → Marquee → About → Services → Process → WhyUs → FinalCTA |
+| `src/app/page.tsx` | composición: Hero → Marquee → Pillars → Process → Services → Case → WhyUs → Team → FinalCTA |
 
 ### Components → ver [src/components/README.md](src/components/README.md)
 - `layout/{NavBar,Footer}.tsx`
-- `sections/{Hero,Marquee,About,Services,Process,WhyUs,FinalCTA}.tsx`
+- `sections/{Hero,Marquee,Pillars,Process,Services,Case,WhyUs,Team,FinalCTA}.tsx`
 - `ui/{SectionWrapper,Eyebrow,Button,Logo,WhatsAppFloat}.tsx`
 
 ### Data → ver [src/data/README.md](src/data/README.md)
 - `site.ts` — fuente única (marca, contactos, redes, formUrl, navLinks)
+- `pillars.ts` — los 3 verbos (Construye / Enseña / Gobierna)
+- `process.ts` — 5 pasos (paso 02 = "Clasifica el trabajo / qué no construir")
 - `services.ts` — 6 servicios
-- `process.ts` — 4 pasos
-- `differentiators.ts` — 3 diferenciales
-- `metrics.ts` — 3 métricas Hero + items del marquee
+- `differentiators.ts` — 3 puntos de postura
+- `cases.ts` — caso de estudio único (slot vacío hasta llenarse con datos reales)
+- `team.ts` — bio (slot vacío)
+- `metrics.ts` — items del Marquee
 
 ---
 
@@ -97,10 +102,13 @@ text-accent    (#1E2952 — azul tinta, único acento)
 | Quiero... | Editar |
 |---|---|
 | Cambiar marca, WhatsApp, email, redes, URL del formulario | `src/data/site.ts` |
+| Editar los 3 verbos del modelo | `src/data/pillars.ts` |
+| Cambiar pasos del proceso (5) | `src/data/process.ts` |
 | Añadir/editar un servicio | `src/data/services.ts` |
-| Cambiar pasos del proceso | `src/data/process.ts` |
-| Cambiar diferenciales | `src/data/differentiators.ts` |
-| Cambiar métricas Hero o items del marquee | `src/data/metrics.ts` |
+| Editar la postura (3 puntos) | `src/data/differentiators.ts` |
+| Rellenar el caso de estudio | `src/data/cases.ts` |
+| Rellenar la bio del equipo | `src/data/team.ts` |
+| Cambiar items del Marquee | `src/data/metrics.ts` |
 | Cambiar anchors del menú | `navLinks` en `src/data/site.ts` |
 | Cambiar colores | `src/app/globals.css` (`@theme`) + `docs/design-tokens.md` (sincronizar) |
 | Reemplazar logo placeholder | `src/components/ui/Logo.tsx` (componente `<Mark />`) |
