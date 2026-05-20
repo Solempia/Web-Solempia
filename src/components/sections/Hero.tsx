@@ -70,12 +70,7 @@ export default function Hero() {
           </motion.p>
 
           <motion.div variants={item} className="flex flex-wrap gap-3">
-            <Button
-              href={site.formUrl}
-              variant="primary"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <Button href="/contacto" variant="primary">
               Empieza una conversación →
             </Button>
             <Button

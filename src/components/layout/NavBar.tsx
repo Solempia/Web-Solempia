@@ -44,8 +44,8 @@ export default function NavBar() {
           ))}
         </ul>
 
-        <Button href="#contacto" variant="primary" className="px-5 py-2 text-sm">
-          Empezar
+        <Button href="/contacto" variant="primary" className="px-5 py-2 text-sm">
+          Contacto
         </Button>
       </nav>
     </header>

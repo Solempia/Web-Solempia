@@ -28,12 +28,7 @@ export default function FinalCTA() {
           respondemos con una primera lectura — sin compromiso, sin pitch.
         </p>
         <div className="mt-10 flex flex-wrap gap-3 justify-center">
-          <Button
-            href={site.formUrl}
-            variant="primary"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <Button href="/contacto" variant="primary">
             Escríbenos →
           </Button>
           <Button

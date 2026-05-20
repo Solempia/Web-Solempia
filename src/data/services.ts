@@ -19,26 +19,26 @@ export const services: Service[] = [
   },
   {
     code: "03",
-    title: "Chatbots inteligentes",
+    title: "Chatbots",
     description:
-      "Atienden 24/7, califican leads, responden dudas y guían el proceso de compra con precisión.",
+      "Atienden, califican leads y guían la compra. Cuando una FAQ estática basta, lo decimos.",
   },
   {
     code: "04",
     title: "Funnels de venta",
     description:
-      "Embudos automatizados que llevan al prospecto del primer contacto a la conversión con seguimiento inteligente.",
+      "Embudos que llevan al prospecto del primer contacto a la conversión, con seguimiento automatizado en cada paso.",
   },
   {
     code: "05",
     title: "Estrategia con IA",
     description:
-      "Analizamos el negocio para identificar los puntos de mayor impacto y diseñar la arquitectura adecuada.",
+      "Mapeamos el negocio para identificar dónde la IA aporta, dónde basta software tradicional y qué no se debería construir.",
   },
   {
     code: "06",
     title: "Integración de sistemas",
     description:
-      "Conectamos CRM, ERP, WhatsApp, email y calendarios en un ecosistema que funciona sin fricciones.",
+      "Conectamos CRM, ERP, WhatsApp, email y calendario. Una sola fuente de verdad, sin datos sueltos entre herramientas.",
   },
 ];
