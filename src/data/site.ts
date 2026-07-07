@@ -2,10 +2,10 @@ export const site = {
   brand: "solempia",
   tagline: "Automatización · IA · Gobernanza",
   description:
-    "Diseñamos y construimos sistemas de automatización con IA para empresas que quieren dejar de perder tiempo en procesos manuales.",
+    "Diseñamos y construimos sistemas inteligentes  para empresas que quieren dejar de perder tiempo en procesos manuales.",
   whatsapp: "34614932840",
-  whatsappMessage: "Hola, vi su sitio y me interesa automatizar mi negocio.",
-  email: "hola@solempia.com",
+  whatsappMessage: "Hola, vi su sitio y me interesa analizar un proceso critico de mi negocio.",
+  email: "info@solempia.com",
   instagram: "https://instagram.com/solempia",
   linkedin: "https://linkedin.com/company/solempia",
   // Webhook n8n al que el formulario de /contacto envía POST JSON.
