@@ -1,6 +1,6 @@
 # Data
 
-Toda la configuración y contenido editable de la landing vive aquí. Los componentes leen de estos archivos.
+Toda la configuración y contenido editable del sitio vive aquí. Los componentes leen de estos archivos. **La fuente de verdad del copy es `docs/solempia-web-draft.md`**: si cambias contenido aquí, actualiza el draft (o al revés).
 
 ## site.ts — fuente de verdad de marca
 
@@ -9,95 +9,66 @@ Archivo central. Cambiar aquí actualiza NavBar, Footer, WhatsApp float, CTAs y 
 ```ts
 export const site = {
   brand,            // wordmark (minúsculas)
-  tagline,          // texto auxiliar
-  description,      // metadata.description
+  tagline,          // posicionamiento en una línea (footer)
+  description,      // metadata.description de la home
+  url,              // dominio canónico — metadataBase, sitemap, robots
   whatsapp,         // dígitos con código país, sin "+"
   whatsappMessage,  // texto pre-poblado al abrir WhatsApp
   email,
   instagram, linkedin,
-  formUrl,          // URL del formulario externo
+  n8nWebhookUrl,    // webhook n8n del formulario; "" = form deshabilitado
   copyrightYear,
 }
 
-export const navLinks  // { href, label }[] — anchors del NavBar
+export const navLinks   // { href, label }[] — rutas reales del NavBar/Footer
+export const legalLinks // { href, label }[] — aviso legal, privacidad, cookies (Footer)
+export const ctas       // los 4 textos de botón canónicos del draft
+export interface Cta    // { label, href }
 ```
 
-## pillars.ts — los 3 verbos (Construye / Enseña / Gobierna)
+**`ctas` es de solo lectura conceptual**: los 4 textos de botón (diagnóstico, llamada, formación, radar) son consistentes en todo el sitio por decisión del draft. No redactar variantes por página.
 
-Modelo central de Solempia. Aparece en Hero (lateral) y en `Pillars.tsx`.
+## home.ts — portada completa
 
-```ts
-interface Pillar {
-  code: string;     // "01"–"03"
-  verb: string;     // "Construye" / "Enseña" / "Gobierna"
-  slug: string;     // "construye_" / etc — eyebrow mono
-  headline: string; // 3–5 palabras
-  body: string;     // 1–2 frases
-}
-```
+Todo el contenido de `/`: `hero`, `problema`, `cambio`, `metodoResumen` (60/30/10), `escalera` (4 pasos), `garantia`, `numero` (ejemplo ilustrativo), `porque` (5 puntos), `faqTeaser`, `ctaFinal`.
 
-## process.ts — los 5 pasos
+- `numero.ejemplo.etiqueta` es **obligatoria y visible** ("Ejemplo ilustrativo…"). No esconderla.
+- `faqTeaser` tiene copy propio de portada, distinto al de `faq.ts` (así lo define el draft).
+- La escalera aparece también en el lateral del hero (solo `code`/`title`/`tag`).
 
-```ts
-interface ProcessStep {
-  code: string;        // "01"–"05"
-  title: string;
-  description: string;
-}
-```
+## servicios.ts
 
-**El paso 02 — "Clasifica el trabajo" — es el diferenciador**: decidir explícitamente qué NO automatizar. No tocar sin razón.
+`escalones[4]` (interface `ServicioEscalon`: code, slug, title, tag?, paraQuien, queHacemos, queRecibes[], condiciones?, nota?) + `formacion` (la puerta lateral, con el dato del art. 4 del Reglamento de IA) + `serviciosIntro` + `serviciosCta`.
 
-## services.ts
+## sectores.ts
 
-6 entradas. Render en grid 3×2.
+`perfiles[5]` + `encaje` + `automocion` (heading, intro[2], radar con queMapea/queResuelve, `guardarrail` **visible obligatorio**, cta) + `sectoresCta` + `automocionCta`. `/sectores` y `/sectores/automocion` leen del mismo export `automocion`.
 
-```ts
-interface Service { code: string; title: string; description: string }
-```
+## metodo.ts
 
-## differentiators.ts — postura
+`metodoHero` + `fases[4]` (interface `Fase`; la fase 02 lleva `destacado` — la prueba de calidad — y la 03 lleva `condiciones[3]`) + `principio` (visible en página) + `metodoCta`.
 
-3 entradas. Render en `WhyUs.tsx` como lista enumerada sobria.
+## nosotros.ts
 
-```ts
-interface Differentiator { title: string; description: string }
-```
+`nosotrosHero` + `socios[2]` (Sebastián / Natalia, con código `SE-00X/`) + `pequenos` + `donde`.
 
-## cases.ts — caso de estudio único
+## faq.ts
 
-**Slot vacío hasta que se rellene con datos reales.** No inventar métricas — si una cifra no es verificable, omitirla.
+`faqItems[13]` (interface `FaqItem`: id, question, answer), en el orden del draft. El `id` sirve de anchor (`/faq#precio`).
 
-```ts
-interface CaseStudy {
-  client; sector; problem; built;
-  before; after; delivery;
-  testimonial?: { quote; author; role };
-}
-```
+## contacto.ts
 
-## team.ts — bio
+`contactoHero` + `sectorOptions[9]` + `sizeOptions[4]` + `bajoFormulario` (la alternativa suave hacia `/servicios#formacion`).
 
-**Slot vacío.** 1-3 frases honestas sobre quién dirige Solempia. Sin nombres ni titulares falsos.
+## Caso de estudio (futuro)
 
-```ts
-interface TeamBio { code: string; body: string }
-```
-
-## metrics.ts
-
-```ts
-export const marqueeItems: string[]  // ~9 ítems del Marquee
-```
-
-Las "métricas duras" del Hero fueron eliminadas: no se muestran cifras inventadas. Cuando exista una métrica real verificable, va dentro del caso, no en el Hero.
+La web no publica casos todavía (decisión 2 del draft: cero nombres de clientes, cero testimonios). Cuando exista el primer caso **autorizado por escrito y anonimizado**, sustituye al ejemplo ilustrativo: `numero` en `home.ts` + adaptar `Numero.tsx`. No inventar métricas: si una cifra no es verificable, omitirla.
 
 ---
 
 ## Voz al editar
 Sigue `docs/brand-voice.md`:
-- Sentencias declarativas cortas
-- Primera persona plural
-- Cifras reales o nada — sin redondeos cómodos
-- Decir qué **no** construir es la postura central
-- Sin emojis, sin superlativos vacíos, sin signos de exclamación
+- Sentencias declarativas cortas, de tú, B2B industrial
+- Riesgo calibrado: "reducir y hacer demostrable", nunca "eliminar" ni prometer cumplimiento legal
+- Cifras reales o nada — el ejemplo económico siempre etiquetado como ilustrativo
+- Sin emojis, sin superlativos vacíos, sin signos de exclamación, sin guion largo como conector

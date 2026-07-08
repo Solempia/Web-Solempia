@@ -3,8 +3,7 @@
 import { motion } from "framer-motion";
 import Eyebrow from "@/components/ui/Eyebrow";
 import Button from "@/components/ui/Button";
-import { site } from "@/data/site";
-import { pillars } from "@/data/pillars";
+import { hero, escalera } from "@/data/home";
 
 const container = {
   hidden: { opacity: 0 },
@@ -23,11 +22,7 @@ const item = {
   },
 };
 
-const waLink = `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(
-  site.whatsappMessage
-)}`;
-
-export default function Hero() {
+export default function HeroHome() {
   return (
     <section
       id="hero"
@@ -46,64 +41,63 @@ export default function Hero() {
               aria-hidden="true"
               className="h-1.5 w-1.5 rounded-full bg-accent animate-status-breathe"
             />
-            <Eyebrow withDash={false}>
-              (SE-001/) automatización · ia · gobernanza
-            </Eyebrow>
+            <Eyebrow withDash={false}>{hero.eyebrow}</Eyebrow>
           </motion.div>
 
           <motion.h1
             variants={item}
-            className="font-sans font-medium text-5xl md:text-6xl lg:text-7xl leading-[1.05] -tracking-tight mb-8 max-w-4xl"
+            className="font-sans font-medium text-4xl md:text-6xl lg:text-[4.25rem] leading-[1.05] -tracking-tight mb-8 max-w-4xl"
           >
-            Empezamos con la verdad,
+            {hero.title}
             <br />
-            <span className="text-accent">no con el hype.</span>
+            <span className="text-accent">{hero.titleAccent}</span>
           </motion.h1>
 
           <motion.p
             variants={item}
             className="text-lg text-muted leading-relaxed max-w-xl mb-10"
           >
-            Construimos lo que tiene sentido — y te decimos qué no debería
-            construirse. Sistemas de automatización con IA para equipos que
-            quieren resultados verificables, no demos.
+            {hero.subtitle}
           </motion.p>
 
           <motion.div variants={item} className="flex flex-wrap gap-3">
-            <Button href="/contacto" variant="primary">
-              Empieza una conversación →
+            <Button href={hero.primary.href} variant="primary">
+              {hero.primary.label} →
             </Button>
-            <Button
-              href={waLink}
-              variant="ghost"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              WhatsApp
+            <Button href={hero.secondary.href} variant="ghost">
+              {hero.secondary.label}
             </Button>
           </motion.div>
+
+          <motion.p
+            variants={item}
+            className="mt-8 font-mono text-xs text-muted leading-relaxed max-w-xl"
+          >
+            {hero.context}
+          </motion.p>
         </div>
 
-        {/* Lateral: tres verbos */}
+        {/* Lateral: la escalera en 4 pasos */}
         <motion.div variants={item} className="lg:pb-1">
           <div className="font-mono text-xs uppercase tracking-[0.16em] text-muted mb-6">
-            Método — 03 verbos
+            Cómo trabajamos — 04 pasos
           </div>
           <ul className="flex flex-col">
-            {pillars.map((p) => (
-              <li
-                key={p.code}
-                className="border-t border-line py-5"
-              >
+            {escalera.pasos.map((paso) => (
+              <li key={paso.code} className="border-t border-line py-5">
                 <div className="flex items-baseline gap-4">
-                  <span className="font-mono text-xs text-muted">{p.code}</span>
+                  <span className="font-mono text-xs text-muted">
+                    {paso.code}
+                  </span>
                   <div className="flex-1">
-                    <div className="font-sans font-medium text-2xl -tracking-tight text-ink leading-none">
-                      {p.verb}.
+                    <div className="font-sans font-medium text-lg -tracking-tight text-ink leading-snug">
+                      {paso.title}
                     </div>
-                    <div className="mt-1.5 font-mono text-xs text-muted">
-                      {p.slug}
-                    </div>
+                    {paso.tag && (
+                      <div className="mt-1.5 font-mono text-xs text-accent">
+                        {paso.tag}_
+                      </div>
+                    )}
                   </div>
                 </div>
               </li>

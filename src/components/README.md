@@ -1,62 +1,65 @@
 # Components
 
-Tres grupos: `layout/` (chrome), `sections/` (secciones de página), `ui/` (primitivos reusables).
+Cuatro grupos: `layout/` (chrome), `sections/` (secciones compartidas y por página), `ui/` (primitivos reusables). Las secciones específicas de una página viven en subcarpetas (`sections/home/`, `sections/servicios/`, etc.).
 
 ## layout/
 
 ### NavBar.tsx — `'use client'`
-Sticky top nav. Añade `bg-bg/85 backdrop-blur-sm border-b border-line` tras scrollear 24px. Renderiza `<Logo />`, los anchors de `navLinks` (en `src/data/site.ts`) y un CTA primario. Actualizar anchors en `site.ts`, no aquí.
+Header fijo. Fondo `bg-bg/85 backdrop-blur-sm border-b border-line` tras scrollear 24px (o con el menú móvil abierto). Estado activo por ruta con `usePathname()` + `aria-current="page"` (el subrayado persistente vive en `globals.css`). En `<md` muestra hamburguesa con panel desplegable; los links cierran el panel al navegar. Las rutas vienen de `navLinks` en `src/data/site.ts`.
 
 ### Footer.tsx
-Server component. Logo + 3 links (Instagram, LinkedIn, mailto) + copyright. Todos los valores vienen de `src/data/site.ts`.
+Server component. Tres columnas: marca + tagline, índice de rutas (navLinks + Contacto), contacto/redes. Barra inferior con copyright y `legalLinks` (aviso legal, privacidad, cookies).
 
-## sections/
+## sections/ — compartidas
 
-Todos Server Components excepto Hero (Framer Motion). Orden actual de página: Hero → Marquee → Pillars → Process → Services → Case → WhyUs → Team → FinalCTA.
+### CtaBand.tsx
+Banda de cierre de página: caja centrada con eyebrow, h2 (title + titleAccent), body, CTA primario, secundario opcional y `note` opcional (link mono discreto). Props tipadas con `Cta` de `site.ts`. La usan home, servicios, sectores, automoción, método, FAQ y nosotros.
 
-### Hero.tsx — `'use client'`
-Apertura anti-hype: eyebrow → titular declarativo → sub-copy → 2 CTAs. Lateral derecho: los 3 verbos del modelo (Construye / Enseña / Gobierna) como anclas mono. Lee de `site.ts` y `pillars.ts`. **Sin métricas inventadas, sin orbs, sin gradients.**
+### FaqList.tsx
+Lista abierta de preguntas (sin acordeón): `StaggerList` con filas `border-b`, pregunta y respuesta en grid 2/3. La usan la home (3 items de `home.ts`) y `/faq` (13 de `faq.ts`).
 
-### Marquee.tsx
-Franja horizontal entre Hero y Pillars. Lee `marqueeItems` de `src/data/metrics.ts`. Animación CSS pura.
+### ContactForm.tsx — `'use client'`
+Formulario de `/contacto`: nombre, empresa, sector (select), tamaño (radio en fieldset), proceso (textarea opcional), email, teléfono opcional y checkbox RGPD obligatorio con link a `/privacidad`. POST JSON a `site.n8nWebhookUrl`; con la URL vacía el form muestra error con el email de `site.ts`. Si cambias campos, reconfigura el flujo n8n.
 
-### Pillars.tsx
-Sustituye al About antiguo. Tres tarjetas con `code`, `slug` mono, headline y body — uno por verbo. Lee `pillars[]` de `src/data/pillars.ts`.
+## sections/home/
+Orden de página: HeroHome → Problema → Cambio → MetodoResumen → Escalera → Garantia → Numero → PorQue → FaqTeaser → CtaBand.
 
-### Process.tsx
-5 pasos en lista vertical editorial (no centrada, no con conector decorativo — el listado es la jerarquía). **El paso 02 "Clasifica el trabajo" es el diferenciador**: decidir explícitamente qué NO automatizar. Lee de `src/data/process.ts`.
+- **HeroHome** (`'use client'`, único con Framer Motion directo): titular del draft, 2 CTAs, línea de contexto mono; lateral con la escalera 01–04.
+- **Problema / Cambio / MetodoResumen / Escalera / PorQue / FaqTeaser**: patrón estándar (SectionWrapper + Eyebrow + h2 con línea accent + Reveal/StaggerList).
+- **Garantia**: caja statement (`border border-line bg-surface`), sin SectionWrapper para controlar el ritmo vertical.
+- **Numero**: caja única con el ejemplo ilustrativo (con **etiqueta obligatoria visible**). Cuando exista el primer caso autorizado y anonimizado, lo sustituye (draft → PENDIENTES).
 
-### Services.tsx
-Grid 3×2 de tarjetas con líneas hairline (`gap-px bg-line`). Cada servicio se aplica o no según la clasificación del paso 02. Lee `services[]` de `src/data/services.ts`.
+## sections/ por página
 
-### Case.tsx
-Un único caso de estudio con bloques editoriales: cliente/sector, problema, qué construimos, antes/después, testimonio opcional. **Slot vacío** — completar con datos reales en `src/data/cases.ts`. No inventar métricas.
-
-### WhyUs.tsx
-Postura anti-hype. Lista enumerada (no tarjetas con iconos). Lee `differentiators[]` de `src/data/differentiators.ts`.
-
-### Team.tsx
-Bio honesta. **Slot vacío** — completar con texto real en `src/data/team.ts`.
-
-### FinalCTA.tsx
-Caja centrada con eyebrow + h2 + párrafo sobrio + 2 CTAs (formulario / WhatsApp). Sin urgencia falsa.
+- `servicios/ServicioBloque.tsx` — tarjeta grande por escalón (para quién / qué hacemos / qué recibes / condiciones / nota destacada).
+- `servicios/Formacion.tsx` — puerta lateral con `id="formacion"` (destino de `/servicios#formacion`), borde accent.
+- `sectores/SectorGrid.tsx` — 5 perfiles + sexta celda con el criterio de encaje.
+- `sectores/AutomocionTeaser.tsx` — teaser hacia `/sectores/automocion`.
+- `metodo/Fases.tsx` — 4 fases editoriales; la 03 con condiciones numeradas; cierra con el principio de fondo.
+- `nosotros/Socios.tsx` — 2 socios + "pequeños a propósito" + dónde estamos.
 
 ## ui/
 
 ### SectionWrapper.tsx
 `<SectionWrapper id="x">...</SectionWrapper>` — `py-32 md:py-40 px-6 max-w-6xl mx-auto`.
 
+### PageHeader.tsx
+Cabecera estándar de subpágina: eyebrow + h1 (title + titleAccent) + intro. `pt-32 md:pt-40 pb-16 md:pb-20`.
+
 ### Eyebrow.tsx
-Mono, uppercase, tracking-wide, `text-muted`. Dash decorativo opcional (`withDash` prop). Aceptar slugs estilo `construye_` o `(SE-METHOD/)`.
+Mono, uppercase, tracking-wide, `text-muted`. Dash decorativo opcional (`withDash`). Aceptar slugs estilo `método_` o `(SE-001/)`.
 
 ### Button.tsx
-Dos variantes: `primary` (bg-accent, text-bg) y `ghost` (border-line). Acepta cualquier prop de anchor. Focus ring accesible.
+Dos variantes: `primary` (bg-accent) y `ghost` (border-line). Rutas internas van por `next/link`; anchors y URLs externas por `<a>`.
+
+### Motion.tsx — `'use client'`
+`Reveal`, `StaggerList`, `StaggerItem`. Todos respetan `prefers-reduced-motion`. Las secciones nuevas deben animar solo con estos wrappers (Framer Motion directo solo en HeroHome).
 
 ### Logo.tsx
-Símbolo placeholder (rectángulo concéntrico) + wordmark `solempia`. Tamaños `sm` y `md`. **Reemplazar el componente `Mark` con el SVG definitivo cuando esté disponible.**
+Símbolo placeholder + wordmark. **Reemplazar `Mark` con el SVG definitivo cuando esté disponible.**
 
 ### WhatsAppFloat.tsx
-Burbuja fija bottom-right. Verde `#25D366` (única excepción a la paleta — convención universal). Lee número y mensaje de `src/data/site.ts`.
+Burbuja fija bottom-right. Verde `#25D366` (única excepción a la paleta).
 
 ## Brand voice en componentes
-Toda la copy en español. Sigue `docs/brand-voice.md`: declarativo, primera persona plural, sentencias cortas. Decir qué **no** construir es parte de la postura. Toda configuración (marca, contactos, URLs, nav) vive en `src/data/site.ts`.
+Copy en español, de tú, B2B industrial. Sigue `docs/brand-voice.md` y las decisiones de `docs/solempia-web-draft.md` (riesgo calibrado, etiqueta del ejemplo ilustrativo, guardarraíl de automoción visibles). Toda configuración vive en `src/data/site.ts`.

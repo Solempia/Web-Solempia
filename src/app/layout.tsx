@@ -17,7 +17,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Solempia — Automatización e Inteligencia Artificial",
+  metadataBase: new URL(site.url),
+  // Title de la home según la tabla SEO del draft (supera los 60 caracteres
+  // de su propia guía; se usa tal cual por ser la fuente de verdad).
+  title: "Solempia — Automatización y uso seguro de IA para pymes industriales",
   description: site.description,
 };
 

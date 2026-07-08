@@ -1,50 +1,66 @@
-# PRD — Solempia Landing
+# PRD — Sitio web Solempia
 
 ## Qué construimos
-Una landing single-page institucional para **Solempia**, agencia de IA y automatización. Hosteada en GitHub Pages, estática (Next.js `output: 'export'`).
+Sitio multipágina institucional para **Solempia**: automatización de procesos y uso seguro de IA para pymes industriales, con automoción/OEM como especialización visible. Hosteado en GitHub Pages, estático (Next.js `output: 'export'`), dominio solempia.com.
+
+El contenido completo (copy, SEO, decisiones de posicionamiento) vive en `docs/solempia-web-draft.md` — ese documento es la fuente de verdad editorial.
 
 ## Por qué
-- Captar prospectos cualificados que necesitan automatizar procesos con IA
-- Proyectar autoridad editorial europea (Linear/Stripe/Vercel) frente a agencias IA genéricas
-- Centralizar el primer punto de contacto: el visitante termina enviando WhatsApp, completando el formulario externo o escribiendo al email
+- Captar pymes industriales que pierden horas en tareas manuales y no controlan el uso de IA de su equipo
+- Vender la puerta de entrada (diagnóstico con garantía), no el programa completo: "nunca a ciegas"
+- Proyectar autoridad sobria anti-hype frente a agencias de "IA para empresas" genéricas
 
 ## Audiencia (orden de prioridad)
-1. **Founders / directores de operaciones** de PyMEs y empresas medianas que perciben procesos costosos repetitivos y quieren delegarlos en IA
-2. **Equipos comerciales / marketing** evaluando agencias para automatizar funnels, chatbots e integraciones (CRM, WhatsApp, email)
-3. **Compradores técnicos** (CTOs, leads de IT) validando si la agencia tiene criterio antes de pasar a propuesta
-
-Todos esperan: respuesta rápida, propuesta sin jerga, casos verificables.
+1. **Gerentes de pymes industriales y técnicas (5–100 personas)**: mantenimiento, instalaciones, calidad, metalmecánica, logística, construcción, agroindustria
+2. **Proveedores de automoción / OEM** con exigencias de auditoría (TISAX, IATF): audiencia de la página `/sectores/automocion`
+3. **Responsables de calidad / IT** que validan al proveedor antes de pasar a dirección
 
 ## Criterios de éxito
 - Carga en menos de 2s en conexión móvil mid-tier
-- CTA primario (formulario o WhatsApp) visible en hero sin scroll
-- Visitante puede llegar a contactar en menos de 3 acciones desde cualquier sección
-- Cero clichés visuales de IA — el sitio se siente editorial premium, no "agencia IA 2024"
-- Editar `src/data/site.ts` cambia marca, contactos y CTAs sin tocar componentes
+- CTA primario ("Pedir el diagnóstico") visible en hero sin scroll
+- Visitante puede llegar a contactar en menos de 3 acciones desde cualquier página
+- Cero clichés visuales de IA — el sitio se siente editorial premium
+- Editar `src/data/*.ts` cambia todo el contenido sin tocar componentes
+- Lenguaje de riesgo calibrado en todo el sitio: nunca "eliminar riesgo" ni prometer cumplimiento legal
 
-## Secciones (single-page con anchors)
-1. **Hero** (`#hero`) — eyebrow + titular + sub-copy + 2 CTAs (formulario / WhatsApp) + lateral con 3 métricas
-2. **Marquee** — franja de servicios en mono uppercase, animada
-3. **About** (`#sobre`) — quiénes somos + bloque editorial lateral (no orbital ring)
-4. **Services** (`#servicios`) — grid 3×2 de 6 servicios codificados `01`–`06`
-5. **Process** (`#proceso`) — 4 pasos con conector horizontal
-6. **WhyUs** (`#diferencial`) — 3 diferenciales en stack de tarjetas
-7. **FinalCTA** (`#contacto`) — caja centrada con 2 CTAs
+## Páginas
+1. `/` — Hero (garantía en titular) → Problema → Lo que cambia → Método 60/30/10 → Escalera 4 pasos → Garantía → El número (ejemplo ilustrativo) → Por qué Solempia → FAQ breve → CTA final
+2. `/servicios` — escalera detallada (diagnóstico, piloto, módulo + uso seguro, mantenimiento) + formación como puerta lateral (`#formacion`)
+3. `/sectores` — 5 perfiles industriales + teaser de automoción
+4. `/sectores/automocion` — Radar de IA en la Sombra (URL propia para campañas), con guardarraíl visible
+5. `/metodo` — las 4 fases, con las 3 condiciones no negociables de la IA
+6. `/nosotros` — 2 socios con nombre y credenciales reales
+7. `/faq` — 13 preguntas sin rodeos
+8. `/contacto` — formulario (n8n webhook) con checkbox RGPD + vías directas
+9. `/aviso-legal` · `/privacidad` · `/cookies` — placeholders legales (noindex) hasta validación con gestoría
 
-Componentes globales: `NavBar` sticky, `Footer`, `WhatsAppFloat`.
+Componentes globales: `NavBar` fija con estado activo y menú móvil, `Footer` con índice, `WhatsAppFloat`.
 
-## Fuera de alcance (v1)
-- Página `/projects` o `/casos` (eliminada — el sitio es single-page)
+## Reglas de contenido (del draft)
+- **Cero nombres de clientes y cero testimonios** — la prueba es la garantía, el método con nombre y el ejemplo económico ilustrativo
+- El ejemplo económico lleva **etiqueta visible** de "ejemplo ilustrativo"
+- Precios públicos: solo la puerta de entrada se describe con "precio cerrado antes de empezar"
+- La palabra IA aparece donde es sustancia, no como gancho de portada
+- Textos de botón canónicos y consistentes (definidos en `ctas`, `src/data/site.ts`)
+
+## Fuera de alcance (v2)
 - Blog
-- Formulario propio de contacto (el CTA enlaza al `formUrl` externo configurado en `site.ts`)
 - CMS — el contenido vive en TypeScript files dentro de `src/data/`
-- Multi-idioma (sitio íntegramente en español)
-- Analytics (se añade después si hace falta)
+- Versión en inglés (solo cuando se active la fase Alemania/Suecia, adaptando la voz, no traduciendo)
+- Analytics (si se añade, requiere banner de consentimiento)
 - Modo oscuro (la marca es claro hueso por definición — ver `docs/design-tokens.md`)
+- Precios orientativos publicados (reversible: decidir tras las primeras conversaciones)
 
 ## Constraints
-- Static site (GitHub Pages, sin servidor)
+- Static site (GitHub Pages, sin servidor) — el formulario envía a un webhook n8n externo
 - Mobile-first (revisar 360px antes que desktop)
-- Accesibilidad: HTML semántico, `lang="es"`, contraste WCAG AA, focus rings visibles
+- Accesibilidad: HTML semántico, `lang="es"`, contraste WCAG AA, focus rings visibles, `prefers-reduced-motion`
 - Lighthouse target: performance ≥95, accessibility ≥95
 - Toda configuración de marca/contactos centralizada en `src/data/site.ts`
+
+## Pendientes antes de publicar (checklist del draft)
+- [ ] Confirmar con la gestoría los datos del aviso legal y publicar las páginas legales definitivas (quitar noindex, añadir al sitemap)
+- [ ] Configurar `n8nWebhookUrl` en `src/data/site.ts` (hoy el form está deshabilitado)
+- [ ] Decidir si se publican precios orientativos del diagnóstico y la formación
+- [ ] Cuando exista el primer caso autorizado y anonimizado: sustituir el ejemplo ilustrativo (`numero` en `src/data/home.ts`) por el caso real
+- [ ] Pasada anti-tells de IA tras cualquier edición de copy

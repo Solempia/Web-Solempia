@@ -18,6 +18,11 @@ html {
   scroll-behavior: smooth;
 }
 
+/* El header fijo (h-16) tapa los destinos de anchor; compensar al hacer scroll. */
+[id] {
+  scroll-margin-top: 5rem;
+}
+
 body {
   background-color: var(--color-bg);
   color: var(--color-ink);
@@ -52,18 +57,17 @@ body {
 .nav-link:hover::after {
   transform: scaleX(1);
 }
+/* Ruta activa: subrayado persistente + tinta plena */
+.nav-link[aria-current="page"] {
+  color: var(--color-ink);
+}
+.nav-link[aria-current="page"]::after {
+  transform: scaleX(1);
+}
 @media (prefers-reduced-motion: reduce) {
   .nav-link::after {
     transition: none;
   }
-}
-
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-.animate-marquee {
-  animation: marquee 32s linear infinite;
 }
 
 @keyframes wa-ring {
@@ -83,7 +87,6 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .animate-marquee,
   .animate-wa-ring,
   .animate-status-breathe {
     animation: none;
