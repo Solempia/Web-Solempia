@@ -12,7 +12,7 @@ fecha: 2026-07-06
 
 ## 0. Decisiones de posicionamiento (leer antes de maquetar)
 
-1. **Genérico industrial, con automoción como especialización visible.** Decisión de Sebastián (2026-07-06). La auditoría de oferta pedía una sola punta de lanza; se resuelve así: la portada vende UNA promesa para toda pyme industrial (horas recuperadas + IA bajo control), y automoción vive como página de sector propia, donde sí se afila al máximo (Radar de IA en la Sombra, TISAX, IATF).
+1. **Genérico industrial, con automoción como especialización visible.** Decisión de Sebastián (2026-07-06). La auditoría de oferta pedía una sola punta de lanza; se resuelve así: la portada vende UNA promesa para toda pyme industrial (horas recuperadas + IA bajo control), y automoción vive como página de sector propia, donde sí se afila al máximo (Radar de IA en la Sombra, TISAX, IATF). *Actualización (2026-07-10):* el Radar tiene además una versión genérica con URL propia (`/radar`) para campañas dirigidas a cualquier pyme, sin el apellido "industrial"; es la única página del sitio que amplía el público. La página de automoción sigue siendo la versión afilada y ambas se enlazan entre sí.
 2. **Cero nombres de clientes y cero testimonios.** No hay casos cerrados publicables todavía. La prueba se construye con: garantía en titular, método con nombre, ejemplo económico trabajado (marcado como ilustrativo) y credenciales reales del equipo. Cuando exista un caso autorizado y anonimizado, sustituye al ejemplo ilustrativo.
 3. **Lenguaje de riesgo calibrado.** Siempre "reducir y hacer demostrable el riesgo", nunca "eliminar" ni "tus datos jamás saldrán". Nunca prometer cumplimiento legal: Solempia diseña y documenta, el asesor legal del cliente valida.
 4. **Precios públicos: solo la puerta de entrada.** El diagnóstico y la formación llevan precio orientativo; las fases posteriores se presupuestan con los datos del diagnóstico. Eso no es una evasiva: es el diferenciador ("nunca a ciegas") y así se cuenta.
@@ -287,6 +287,40 @@ Para este perfil tenemos un diagnóstico específico: el **Radar de IA en la Som
 
 ---
 
+# PÁGINA: RADAR (versión genérica)
+
+**Decisión (2026-07-10):** el problema que mapea el Radar (IA en la sombra + horas perdidas en tareas manuales) no es exclusivo de automoción ni de industria. Esta página es la versión para cualquier pyme, con URL propia (`/radar`) para campañas que no segmentan por sector. Es la única página del sitio que habla a pymes en general: el resto mantiene el posicionamiento industrial (decisión 1). Sin TISAX ni IATF: eso vive en `/sectores/automocion`, que sigue siendo la versión afilada. Ambas se enlazan entre sí.
+
+**Titular de página:** Radar de IA en la Sombra.
+
+**Intro (bajo el titular):**
+> Tu equipo ya usa IA. Desde cuentas personales, con información de la empresa y de tus clientes, sin que nadie haya decidido que eso esté bien. Prohibirlo no lo arregla. Lo vuelve invisible.
+
+**Párrafo de contexto:**
+> El Radar es un diagnóstico corto que convierte ese uso invisible en un mapa. Qué información sale, hacia dónde, cuántas horas se van en tareas manuales y qué merece arreglarse primero. Es el mismo diagnóstico que afilamos para proveedores de automoción, en versión para cualquier pyme.
+
+**Qué mapea:**
+- Qué información de tu empresa y de tus clientes toca hoy qué herramienta, incluida la IA que tu equipo usa desde cuentas personales.
+- Cuántas horas cualificadas se van en informes, presupuestos y documentación que se rehace a mano.
+- Qué proceso merece automatizarse primero, con un caso económico defendible.
+
+**Qué resuelve:**
+- Reglas de uso seguro listas para distribuir: qué puede subirse, a qué herramienta, y qué no sale nunca.
+- Validación humana explícita y registrada en cualquier salida que afecte a clientes o a calidad.
+- Un dossier de evidencias: herramientas aprobadas, formación registrada, controles. Lo que enseñas cuando un cliente o un auditor pregunta cómo gestionáis la IA.
+
+**Guardarraíl visible en la página:** el riesgo no se elimina. Se reduce y se hace demostrable. No sustituimos a tu asesor legal: preparamos la evidencia y el control, y la validación normativa es de quien corresponde.
+
+**CTA de cierre:** "Cuando un cliente pregunte, ten un dossier." + `Pedir el Radar de IA en la Sombra` · `Reservar llamada de 20 minutos`
+Cuerpo de la banda: "El Radar tiene precio cerrado antes de empezar y la misma garantía que el diagnóstico operativo: si no te descubre nada, no lo pagas."
+
+**Enlaces cruzados (mono discreto):**
+- En `/radar`, bajo la banda CTA: `Ver la versión para automoción y OEM →` (`/sectores/automocion`).
+- En `/sectores/automocion`, bajo la banda CTA: `¿No trabajas para un OEM? Ver la versión genérica →` (`/radar`).
+- En el teaser de automoción de `/sectores`, bajo el botón: `El Radar también existe en versión genérica →` (`/radar`).
+
+---
+
 # PÁGINA: MÉTODO
 
 **Titular de página:** La IA es la capa más pequeña del sistema.
@@ -414,6 +448,7 @@ Según el caso pueden aplicar programas como Kit Digital o Kit Consulting, y la 
 | Inicio | Solempia — Automatización y uso seguro de IA para pymes industriales | Recupera las horas que tu empresa pierde en tareas manuales y pon la IA de tu equipo bajo control demostrable. Diagnóstico con garantía. |
 | Servicios | Servicios — Diagnóstico, automatización y uso seguro de IA | Del diagnóstico operativo al mantenimiento: cada fase con precio cerrado y presupuestada con datos, nunca a ciegas. |
 | Sectores | Sectores — Industria, servicios técnicos y automoción OEM | Mantenimiento, calidad, metalmecánica, logística y proveedores de automoción. Radar de IA en la Sombra para quien trabaja con OEM. |
+| Radar | Radar de IA en la Sombra — Diagnóstico para pymes | Tu equipo ya usa IA por su cuenta. El Radar mapea qué datos salen, cuántas horas se pierden y qué reglas lo ponen bajo control demostrable. |
 | Método | Método — Ordenar, automatizar y aplicar IA donde aporta | El 60 % es información ordenada, el 30 % automatización y el 10 % el modelo. Construimos en ese orden, con validación humana. |
 | Nosotros | Nosotros — El equipo de Solempia | Dos socios, perfil técnico y comercial. Quien analiza tu operación es quien construye la solución. Desde Jaén para toda España. |
 | FAQ | Preguntas frecuentes — Solempia | Precios, datos de clientes, cumplimiento, pilotos que no salen y por qué prohibir la IA no funciona. Respuestas sin rodeos. |
@@ -421,7 +456,7 @@ Según el caso pueden aplicar programas como Kit Digital o Kit Consulting, y la 
 
 ## Slugs propuestos
 
-`/` · `/servicios` · `/sectores` · `/sectores/automocion` (si el CMS permite, separar el Radar en su propia URL para campañas) · `/metodo` · `/nosotros` · `/faq` · `/contacto`
+`/` · `/servicios` · `/sectores` · `/sectores/automocion` (si el CMS permite, separar el Radar en su propia URL para campañas) · `/radar` (versión genérica del Radar, para campañas sin segmentar por sector) · `/metodo` · `/nosotros` · `/faq` · `/contacto`
 
 ## Textos de botón (consistentes en todo el sitio)
 
@@ -445,4 +480,5 @@ Según el caso pueden aplicar programas como Kit Digital o Kit Consulting, y la 
 - [ ] Confirmar con la gestoría los datos del aviso legal.
 - [ ] Pasada anti-tells de IA tras las ediciones (sin guion largo como conector, variar ritmo, sin listas demasiado simétricas).
 - [ ] Cuando exista el primer caso autorizado y anonimizado: sustituir el bloque "ejemplo ilustrativo" por el caso real.
+- [ ] Decidir la dirección de imagen del sitio (material propio / ilustración / abstracto de marca) — ver `docs/imagery-spec.md`. Incluye los retratos de los socios.
 - [ ] Versión en inglés: solo cuando se active la fase 2 (Alemania/Suecia), adaptando la voz, no traduciendo.

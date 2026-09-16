@@ -42,7 +42,11 @@ Todo el contenido de `/`: `hero`, `problema`, `cambio`, `metodoResumen` (60/30/1
 
 ## sectores.ts
 
-`perfiles[5]` + `encaje` + `automocion` (heading, intro[2], radar con queMapea/queResuelve, `guardarrail` **visible obligatorio**, cta) + `sectoresCta` + `automocionCta`. `/sectores` y `/sectores/automocion` leen del mismo export `automocion`.
+`perfiles[5]` + `encaje` + `automocion` (heading, intro[2], radar con queMapea/queResuelve, `guardarrail` **visible obligatorio**, cta) + `sectoresCta` + `automocionCta` (con `note` hacia `/radar`). `/sectores` y `/sectores/automocion` leen del mismo export `automocion`.
+
+## radar.ts
+
+Contenido de `/radar`, la versión genérica del Radar de IA en la Sombra (landing de campaña para cualquier pyme, sin TISAX/IATF; la única página del sitio que no se limita a industria): `radar` (intro, contexto, queMapea, queResuelve, `guardarrail` **visible obligatorio**) + `radarCta` (con `note` hacia `/sectores/automocion`). La versión automoción vive en `sectores.ts`.
 
 ## metodo.ts
 

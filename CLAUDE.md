@@ -29,9 +29,10 @@ portafolio/
 │   ├── solempia-web-draft.md ← fuente de verdad del copy (todas las páginas)
 │   ├── prd.md                ← producto y alcance
 │   ├── brand-voice.md        ← tono, vocabulario do/don'ts
-│   └── design-tokens.md      ← color, tipografía, anti-clichés IA
+│   ├── design-tokens.md      ← color, tipografía, anti-clichés IA
+│   └── imagery-spec.md       ← dirección de imagen (pendiente de decidir; sin stock)
 ├── src/
-│   ├── app/                  ← Next.js routes (8 páginas + sitemap/robots)
+│   ├── app/                  ← Next.js routes (9 páginas + sitemap/robots)
 │   ├── components/           ← UI components (ver src/components/README.md)
 │   └── data/                 ← contenido editable (ver src/data/README.md)
 ├── public/                   ← assets estáticos + CNAME (solempia.com)
@@ -48,7 +49,8 @@ portafolio/
 | `/` | Home: hero → problema → cambio → método 60/30/10 → escalera → garantía → número (ejemplo ilustrativo) → por qué → FAQ teaser → CTA |
 | `/servicios` | Escalera de 4 pasos + formación (`#formacion`) |
 | `/sectores` | 5 perfiles industriales + teaser automoción |
-| `/sectores/automocion` | Radar de IA en la Sombra (URL propia para campañas) |
+| `/sectores/automocion` | Radar de IA en la Sombra, versión automoción/OEM (URL propia para campañas) |
+| `/radar` | Radar de IA en la Sombra, versión genérica para cualquier pyme — única página que no se limita a industria (URL propia para campañas) |
 | `/metodo` | 4 fases (ordenar / automatizar / aplicar IA / formar) |
 | `/nosotros` | Los 2 socios + "pequeños a propósito" |
 | `/faq` | 13 preguntas completas |
@@ -74,20 +76,22 @@ portafolio/
 | `docs/prd.md` | añadir/quitar páginas o secciones, cambiar alcance |
 | `docs/brand-voice.md` | escribir cualquier copy |
 | `docs/design-tokens.md` | tocar colores, fuentes, espaciado, animación |
+| `docs/imagery-spec.md` | añadir cualquier imagen — la dirección visual está pendiente de decidir y el stock está vetado |
 
 ### Design system (código)
 | File | Purpose |
 |---|---|
 | `src/app/globals.css` | tokens en `@theme` Tailwind v4. Espejo de `docs/design-tokens.md`. También: scroll-margin para anchors y estado activo del nav. |
 
-Tokens expuestos como utilidades Tailwind:
+Tokens expuestos como utilidades Tailwind (dirección Malaquita):
 ```
-bg-bg          (#FAFAF7 — fondo hueso)
-bg-surface     (#FFFFFF — tarjetas)
-text-ink       (#1A1A1A — texto principal)
-text-muted     (#6B6B6B — texto secundario, metadata)
-border-line    (#E5E5E0 — divisores, bordes)
-text-accent    (#1E2952 — azul tinta, único acento)
+bg-bg          (#EEF0E8 — bone con tinte salvia)
+bg-surface     (#F8F9F1 — tarjetas, paneles)
+text-ink       (#141614 — texto principal, casi negro con micro-tinte verde)
+text-muted     (#6A7064 — salvia: texto secundario, metadata)
+border-line    (#D6DACE — divisores, bordes)
+text-accent    (#1F4034 — malaquita, único acento de acción)
+text-bronze    (#6B5536 — segunda tinta cálida: códigos, marginalia; no es CTA)
 ```
 
 ### App shell
@@ -105,7 +109,7 @@ text-accent    (#1E2952 — azul tinta, único acento)
 ### Data → ver [src/data/README.md](src/data/README.md)
 - `site.ts` — fuente única (marca, contactos, redes, `n8nWebhookUrl`, `navLinks`, `legalLinks`, `ctas` canónicos)
 - `home.ts` — todo el contenido de la portada
-- `servicios.ts` / `sectores.ts` / `metodo.ts` / `nosotros.ts` / `faq.ts` / `contacto.ts` — contenido por página
+- `servicios.ts` / `sectores.ts` / `radar.ts` / `metodo.ts` / `nosotros.ts` / `faq.ts` / `contacto.ts` — contenido por página
 
 ---
 
@@ -117,14 +121,17 @@ text-accent    (#1E2952 — azul tinta, único acento)
 | Cambiar los textos de botón (4 canónicos) | `ctas` en `src/data/site.ts` |
 | Editar el hero, la garantía o el ejemplo económico | `src/data/home.ts` |
 | Editar un servicio de la escalera o la formación | `src/data/servicios.ts` |
-| Editar sectores o el Radar de IA en la Sombra | `src/data/sectores.ts` |
+| Editar sectores o el Radar versión automoción | `src/data/sectores.ts` |
+| Editar el Radar genérico (`/radar`) | `src/data/radar.ts` |
 | Editar las fases del método | `src/data/metodo.ts` |
 | Editar bios del equipo | `src/data/nosotros.ts` |
 | Añadir/editar una pregunta del FAQ | `src/data/faq.ts` (portada: `faqTeaser` en `home.ts`) |
 | Cambiar opciones del formulario (sector/tamaño) | `src/data/contacto.ts` + reconfigurar flujo n8n |
 | Cambiar el menú | `navLinks` en `src/data/site.ts` |
 | Cambiar colores | `src/app/globals.css` (`@theme`) + `docs/design-tokens.md` (sincronizar) |
-| Reemplazar logo placeholder | `src/components/ui/Logo.tsx` (componente `<Mark />`) |
+| Cambiar el logo (malla Malaquita, 7 nodos) | `src/components/ui/Logo.tsx` (componente `<Mark />`) |
+| Añadir cualquier imagen | leer antes `docs/imagery-spec.md` — dirección pendiente de decidir, fotografía de stock vetada |
+| Cambiar favicon / apple icon / imagen OG | `src/app/{icon,apple-icon,opengraph-image}.tsx` (ImageResponse, se generan en build; el favicon usa marca simplificada de 4 nodos — la malla completa se empasta <20px) |
 | Añadir una página nueva | `src/app/<ruta>/page.tsx` (usar `ui/PageHeader` + `sections/CtaBand`), data en `src/data/`, añadir a `navLinks` y `src/app/sitemap.ts` |
 | Publicar el texto legal definitivo | `src/app/{aviso-legal,privacidad,cookies}/page.tsx` (quitar `noindex`, añadir al sitemap) |
 | Publicar el primer caso real autorizado | sustituir `numero` en `src/data/home.ts` y adaptar `Numero.tsx` (draft → PENDIENTES) |

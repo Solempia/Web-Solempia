@@ -1,12 +1,14 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bg: #FAFAF7;
-  --color-surface: #FFFFFF;
-  --color-ink: #1A1A1A;
-  --color-muted: #6B6B6B;
-  --color-line: #E5E5E0;
-  --color-accent: #1E2952;
+  /* Dirección Malaquita — verde inglés sobre bone salvia (docs/design-tokens.md) */
+  --color-bg: #EEF0E8;       /* bone con tinte salvia */
+  --color-surface: #F8F9F1;  /* tarjetas, paneles */
+  --color-ink: #141614;      /* texto principal — casi negro con micro-tinte verde */
+  --color-muted: #6A7064;    /* salvia — texto secundario, metadata */
+  --color-line: #D6DACE;     /* divisores, bordes */
+  --color-accent: #1F4034;   /* malaquita — acento único */
+  --color-bronze: #6B5536;   /* segunda tinta cálida — códigos, marginalia */
 }
 
 @theme inline {

@@ -3,7 +3,7 @@
 Source of truth for visual design. The code in `src/app/globals.css` mirrors these values inside a Tailwind v4 `@theme` block.
 
 ## Visual direction
-**Editorial European minimalism — claro, sobrio, premium.** Referencias rectoras: Linear, Stripe, Vercel. Tradiciones: diseño suizo, Bauhaus, refinamiento escandinavo, editorial holandés. Calidez por restricción (espacios, jerarquía, contraste sans/mono), no por adornos.
+**Dirección Malaquita — premium europeo, gravitas no-corporativo.** Verde inglés (malaquita) sobre bone con tinte salvia, tratado como imprenta a dos tintas (malaquita + bronce). Referencias rectoras: Linear, Stripe, Vercel. Tradiciones: diseño suizo, Bauhaus, refinamiento escandinavo, editorial holandés. Calidez por restricción (espacios, jerarquía, contraste sans/mono), no por adornos. Espejo de código: `docs/solempia-web-draft.md` y el manual de marca (Ed. 01, jun 2026).
 
 ---
 
@@ -11,14 +11,15 @@ Source of truth for visual design. The code in `src/app/globals.css` mirrors the
 
 | Token | Hex | Use |
 |---|---|---|
-| `--color-bg` | `#FAFAF7` | Fondo principal — hueso / blanco roto |
-| `--color-surface` | `#FFFFFF` | Tarjetas, paneles |
-| `--color-ink` | `#1A1A1A` | Texto principal — negro suavizado |
-| `--color-muted` | `#6B6B6B` | Texto secundario, metadatos, captions |
-| `--color-line` | `#E5E5E0` | Divisores, bordes de tarjeta y tabla |
-| `--color-accent` | `#1E2952` | Acento único — azul tinta. Enlaces, CTAs primarios, símbolos clave |
+| `--color-bg` | `#EEF0E8` | Fondo principal — bone con tinte salvia (no blanco clínico) |
+| `--color-surface` | `#F8F9F1` | Tarjetas, paneles |
+| `--color-ink` | `#141614` | Texto principal — casi negro, micro-tinte verde |
+| `--color-muted` | `#6A7064` | Salvia — texto secundario, metadatos, captions |
+| `--color-line` | `#D6DACE` | Divisores, bordes de tarjeta y tabla |
+| `--color-accent` | `#1F4034` | Acento único — malaquita (verde inglés). Enlaces, CTAs primarios, símbolos clave |
+| `--color-bronze` | `#6B5536` | Segunda tinta cálida — códigos, marginalia, detalles editoriales. No es acento de acción |
 
-Expuestas como utilidades Tailwind: `bg-bg`, `bg-surface`, `text-ink`, `text-muted`, `border-line`, `text-accent`, etc.
+Expuestas como utilidades Tailwind: `bg-bg`, `bg-surface`, `text-ink`, `text-muted`, `border-line`, `text-accent`, `text-bronze`, etc.
 
 **Excepción funcional:** el verde WhatsApp `#25D366` se permite únicamente en el botón flotante de WhatsApp por convención universal de la marca.
 
@@ -74,6 +75,10 @@ Tailwind default 4px scale. Patrones editoriales:
 - **Hover en tarjetas**: `border-line` → `border-ink/40`, sin glow ni transform agresivo
 - **Backdrop sutil** en NavBar al scroll: `bg-bg/80 backdrop-blur-sm` (no `backdrop-blur-xl`)
 
+## Imagen
+
+**Sin fotografía de stock.** Se probaron dos registros (oficios concretos y arquitectura industrial abstracta, ambos en duotono) y los dos se descartaron: el stock se siente alquilado, y la maquinaria además segmenta por oficio ("un soldador dice metalmecánica"). Regla vigente: todo material visual debe ser **propio** — real (proyectos, equipo), ilustrado a medida, o derivado de la marca. La dirección concreta está pendiente de decidir en `docs/imagery-spec.md`; hasta entonces el sitio es tipográfico.
+
 ---
 
 ## ⛔ Anti-clichés IA — prohibido explícitamente
@@ -91,6 +96,6 @@ Estos territorios visuales están vetados. Si una propuesta los incluye, se desc
 ## Don'ts generales
 - No pure black (`#000`) — usar `--color-ink`
 - No pure white para fondos de página — usar `--color-bg`
-- No más de 1 color de acento por pantalla
+- Malaquita es el único acento de acción; el bronce es segunda tinta editorial (códigos, marginalia), no un segundo CTA. La regla del manual: el color confirma, no sostiene — si quitas el verde, la pieza sigue leyéndose como Solempia por estructura y tipografía
 - No drop-shadows decorativos en texto
 - No emojis en UI institucional

@@ -21,6 +21,9 @@ Lista abierta de preguntas (sin acordeón): `StaggerList` con filas `border-b`, 
 ### ContactForm.tsx — `'use client'`
 Formulario de `/contacto`: nombre, empresa, sector (select), tamaño (radio en fieldset), proceso (textarea opcional), email, teléfono opcional y checkbox RGPD obligatorio con link a `/privacidad`. POST JSON a `site.n8nWebhookUrl`; con la URL vacía el form muestra error con el email de `site.ts`. Si cambias campos, reconfigura el flujo n8n.
 
+### RadarDetalle.tsx
+Cuerpo compartido de las dos páginas del Radar de IA en la Sombra: párrafo de contexto, grid "Qué mapea / Qué resuelve" y **guardarraíl visible** (requisito del draft). La usan `/radar` (data de `radar.ts`) y `/sectores/automocion` (data de `sectores.ts`).
+
 ## sections/home/
 Orden de página: HeroHome → Problema → Cambio → MetodoResumen → Escalera → Garantia → Numero → PorQue → FaqTeaser → CtaBand.
 
@@ -34,7 +37,7 @@ Orden de página: HeroHome → Problema → Cambio → MetodoResumen → Escaler
 - `servicios/ServicioBloque.tsx` — tarjeta grande por escalón (para quién / qué hacemos / qué recibes / condiciones / nota destacada).
 - `servicios/Formacion.tsx` — puerta lateral con `id="formacion"` (destino de `/servicios#formacion`), borde accent.
 - `sectores/SectorGrid.tsx` — 5 perfiles + sexta celda con el criterio de encaje.
-- `sectores/AutomocionTeaser.tsx` — teaser hacia `/sectores/automocion`.
+- `sectores/AutomocionTeaser.tsx` — teaser hacia `/sectores/automocion`, con link mono discreto hacia `/radar` (versión genérica).
 - `metodo/Fases.tsx` — 4 fases editoriales; la 03 con condiciones numeradas; cierra con el principio de fondo.
 - `nosotros/Socios.tsx` — 2 socios + "pequeños a propósito" + dónde estamos.
 

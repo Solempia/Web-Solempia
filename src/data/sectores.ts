@@ -79,4 +79,8 @@ export const automocionCta = {
   body: "El Radar es un diagnóstico específico para proveedores de automoción, con precio cerrado antes de empezar y la misma garantía que el diagnóstico operativo.",
   primary: ctas.radar,
   secondary: ctas.llamada,
+  note: {
+    label: "¿No trabajas para un OEM? Ver la versión genérica",
+    href: "/radar",
+  },
 } as const;

@@ -8,12 +8,13 @@ const routes = [
   "/servicios/",
   "/sectores/",
   "/sectores/automocion/",
+  "/radar/",
   "/metodo/",
   "/nosotros/",
   "/faq/",
   "/contacto/",
-  // /privacidad queda fuera a propósito: placeholder con noindex hasta
-  // que la gestoría valide el texto legal.
+  // /aviso-legal, /privacidad y /cookies quedan fuera a propósito:
+  // placeholders con noindex hasta que la gestoría valide el texto legal.
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

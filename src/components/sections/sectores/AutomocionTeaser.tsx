@@ -1,3 +1,4 @@
+import Link from "next/link";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import Eyebrow from "@/components/ui/Eyebrow";
 import Button from "@/components/ui/Button";
@@ -27,10 +28,16 @@ export default function AutomocionTeaser() {
                 {p}
               </p>
             ))}
-            <div className="pt-2">
+            <div className="pt-2 flex flex-col items-start gap-5">
               <Button href="/sectores/automocion" variant="ghost">
                 {automocion.radar.name} →
               </Button>
+              <Link
+                href="/radar"
+                className="font-mono text-xs uppercase tracking-[0.16em] text-muted hover:text-ink transition-colors"
+              >
+                El Radar también existe en versión genérica →
+              </Link>
             </div>
           </Reveal>
         </div>
