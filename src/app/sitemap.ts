@@ -10,6 +10,7 @@ const routes = [
   "/sectores/automocion/",
   "/radar/",
   "/metodo/",
+  "/calculadora/",
   "/nosotros/",
   "/faq/",
   "/contacto/",

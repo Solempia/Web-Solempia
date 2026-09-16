@@ -3,7 +3,7 @@ import PageHeader from "@/components/ui/PageHeader";
 import SectorGrid from "@/components/sections/sectores/SectorGrid";
 import AutomocionTeaser from "@/components/sections/sectores/AutomocionTeaser";
 import CtaBand from "@/components/sections/CtaBand";
-import { sectoresCta } from "@/data/sectores";
+import { sectoresHero, sectoresCta } from "@/data/sectores";
 
 export const metadata: Metadata = {
   title: "Sectores — Industria, servicios técnicos y automoción OEM",
@@ -16,9 +16,9 @@ export default function SectoresPage() {
     <main>
       <PageHeader
         eyebrow="sectores_"
-        title="Solo trabajamos"
-        titleAccent="con industria."
-        intro="Estos son los perfiles donde nuestro método rinde más."
+        title={sectoresHero.title}
+        titleAccent={sectoresHero.titleAccent}
+        intro={sectoresHero.intro}
       />
       <SectorGrid />
       <AutomocionTeaser />

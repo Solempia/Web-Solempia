@@ -3,7 +3,12 @@
 import { useState } from "react";
 import Link from "next/link";
 import { site } from "@/data/site";
-import { sectorOptions, sizeOptions } from "@/data/contacto";
+import {
+  sectorOptions,
+  sizeOptions,
+  exito,
+  PLAZO_RESPUESTA,
+} from "@/data/contacto";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
@@ -16,6 +21,8 @@ interface FormData {
   email: string;
   phone: string;
   rgpd: boolean;
+  /** Honeypot anti-spam: invisible para personas, los bots lo rellenan. */
+  website: string;
 }
 
 const initial: FormData = {
@@ -27,6 +34,7 @@ const initial: FormData = {
   email: "",
   phone: "",
   rgpd: false,
+  website: "",
 };
 
 export default function ContactForm() {
@@ -77,6 +85,7 @@ export default function ContactForm() {
           email: data.email,
           phone: data.phone,
           rgpdAccepted: data.rgpd,
+          website: data.website,
           source: "solempia.com/contacto",
           timestamp: new Date().toISOString(),
         }),
@@ -96,11 +105,13 @@ export default function ContactForm() {
     return (
       <div className="border border-line bg-surface p-10 md:p-12">
         <div className="font-mono text-xs uppercase tracking-[0.16em] text-accent mb-5">
-          Recibido
+          {exito.eyebrow}
         </div>
         <p className="font-sans font-medium text-2xl md:text-3xl -tracking-tight leading-snug text-ink">
-          Te respondemos en uno o dos días laborables con una propuesta de
-          llamada de 20 minutos. Sin compromiso.
+          {exito.title}
+        </p>
+        <p className="mt-6 text-base text-muted leading-relaxed max-w-md">
+          {exito.body}
         </p>
       </div>
     );
@@ -114,6 +125,22 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={submit} className="flex flex-col gap-6">
+      {/*
+        Honeypot: fuera de pantalla en vez de display:none, porque muchos bots
+        ignoran los campos ocultos con display. Si llega relleno, n8n descarta
+        el envío en `validar_lead` sin escribirlo en la hoja de leads.
+      */}
+      <input
+        type="text"
+        name="website"
+        value={data.website}
+        onChange={update("website")}
+        className="absolute left-[-9999px] h-px w-px opacity-0"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+      />
+
       <div>
         <label htmlFor="name" className={labelCls}>
           Nombre
@@ -277,7 +304,7 @@ export default function ContactForm() {
           {status === "submitting" ? "Enviando…" : "Enviar →"}
         </button>
         <p className="font-mono text-xs text-muted">
-          Respondemos en 1–2 días laborables
+          Respondemos {PLAZO_RESPUESTA}
         </p>
       </div>
     </form>

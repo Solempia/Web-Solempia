@@ -11,9 +11,9 @@ export default function MetodoResumen() {
         <div>
           <Eyebrow>método_</Eyebrow>
           <h2 className="mt-5 font-sans font-medium text-4xl md:text-5xl -tracking-tight leading-[1.1]">
-            Primero ordenar. Después automatizar.
+            {metodoResumen.title}
             <br />
-            <span className="text-accent">La IA, solo donde aporta.</span>
+            <span className="text-accent">{metodoResumen.titleAccent}</span>
           </h2>
         </div>
         <div className="flex flex-col gap-4 max-w-md md:justify-self-end">

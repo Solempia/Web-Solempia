@@ -30,11 +30,13 @@ export interface Cta    // { label, href }
 
 ## home.ts — portada completa
 
-Todo el contenido de `/`: `hero`, `problema`, `cambio`, `metodoResumen` (60/30/10), `escalera` (4 pasos), `garantia`, `numero` (ejemplo ilustrativo), `porque` (5 puntos), `faqTeaser`, `ctaFinal`.
+Todo el contenido de `/`: `hero`, `caso` (prueba), `problema`, `cambio`, `metodoResumen` (60/30/10), `escalera` (4 pasos), `garantia`, `controlIa`, `ctaFinal`.
 
-- `numero.ejemplo.etiqueta` es **obligatoria y visible** ("Ejemplo ilustrativo…"). No esconderla.
-- `faqTeaser` tiene copy propio de portada, distinto al de `faq.ts` (así lo define el draft).
+- **Promesa única de la portada: horas y margen.** El control de IA vive solo en `controlIa`, al final. No reintroducirlo en el hero: esa doble promesa es lo que hacía ilegible la portada.
+- `caso` vale `null` hasta que haya un cliente real autorizado. Con `null`, la sección no se renderiza. No rellenarlo con cifras estimadas.
+- Cada sección lleva `title` + `titleAccent` (el acento se pinta en color). **Son la fuente real**: los componentes los consumen, no reescriben headings en el JSX.
 - La escalera aparece también en el lateral del hero (solo `code`/`title`/`tag`).
+- Antes de redactar aquí, leer las reglas verificables de `docs/brand-voice.md` (R1-R6). La R1 fija un presupuesto de 3 usos de "X, no Y" por página; hoy se gastan en `problema.cierre`, `cambio.cierre` y `metodoResumen.intro`.
 
 ## servicios.ts
 
@@ -58,15 +60,25 @@ Contenido de `/radar`, la versión genérica del Radar de IA en la Sombra (landi
 
 ## faq.ts
 
-`faqItems[13]` (interface `FaqItem`: id, question, answer), en el orden del draft. El `id` sirve de anchor (`/faq#precio`).
+`faqItems[12]` (interface `FaqItem`: id, question, answer), en el orden del draft. El `id` sirve de anchor (`/faq#precio`).
+
+## calculadora.ts
+
+Contenido de `/calculadora`, el peldaño gratuito de la escalera: `calculadoraHero` + `campos` (personas, horas, coste: label, hint, min, max, defecto) + `resultado` + `calculadoraCta`.
+
+- `SEMANAS_ANIO` (46) y `RECUPERACION` (25-35 %) son **los supuestos del cálculo**. Cambiarlos cambia la cifra que ve el visitante, así que van declarados aquí y explicados en `resultado.supuestos`, visible en pantalla.
+- Se usan 46 semanas y no 52 a propósito: 52 asume que nadie tiene vacaciones e infla el resultado. El ejemplo ilustrativo retirado en 2026-09 sí usaba 52 (daba 83.200 €; con 46 son 73.600 €).
+- `resultado.aviso` es **obligatorio y visible**: esto es una estimación con los supuestos del visitante, no una medición.
 
 ## contacto.ts
 
 `contactoHero` + `sectorOptions[9]` + `sizeOptions[4]` + `bajoFormulario` (la alternativa suave hacia `/servicios#formacion`).
 
-## Caso de estudio (futuro)
+## Caso de estudio
 
-La web no publica casos todavía (decisión 2 del draft: cero nombres de clientes, cero testimonios). Cuando exista el primer caso **autorizado por escrito y anonimizado**, sustituye al ejemplo ilustrativo: `numero` en `home.ts` + adaptar `Numero.tsx`. No inventar métricas: si una cifra no es verificable, omitirla.
+La decisión 2 del draft (cero nombres de clientes, cero testimonios) quedó **derogada en 2026-09-16**: hay clientes reales y la falta de prueba era el mayor lastre de conversión del sitio.
+
+Para publicar el primero, rellenar `caso` en `home.ts` con datos **autorizados por escrito y anonimizados**: perfil, proceso, cifra antes, cifra después, cómo se midió y plazo. No inventar métricas: si una cifra no es verificable, omitirla. Mientras `caso` sea `null`, la sección simplemente no aparece.
 
 ---
 

@@ -30,7 +30,7 @@ El contenido completo (copy, SEO, decisiones de posicionamiento) vive en `docs/s
 4. `/sectores/automocion` — Radar de IA en la Sombra (URL propia para campañas), con guardarraíl visible
 5. `/metodo` — las 4 fases, con las 3 condiciones no negociables de la IA
 6. `/nosotros` — 2 socios con nombre y credenciales reales
-7. `/faq` — 13 preguntas sin rodeos
+7. `/faq` — 12 preguntas sin rodeos
 8. `/contacto` — formulario (n8n webhook) con checkbox RGPD + vías directas
 9. `/aviso-legal` · `/privacidad` · `/cookies` — placeholders legales (noindex) hasta validación con gestoría
 
@@ -62,5 +62,5 @@ Componentes globales: `NavBar` fija con estado activo y menú móvil, `Footer` c
 - [ ] Confirmar con la gestoría los datos del aviso legal y publicar las páginas legales definitivas (quitar noindex, añadir al sitemap)
 - [ ] Configurar `n8nWebhookUrl` en `src/data/site.ts` (hoy el form está deshabilitado)
 - [ ] Decidir si se publican precios orientativos del diagnóstico y la formación
-- [ ] Cuando exista el primer caso autorizado y anonimizado: sustituir el ejemplo ilustrativo (`numero` en `src/data/home.ts`) por el caso real
+- [ ] Rellenar `caso` en `src/data/home.ts` con el primer caso autorizado y anonimizado (hoy `null`: la sección de prueba de la portada no se renderiza)
 - [ ] Pasada anti-tells de IA tras cualquier edición de copy

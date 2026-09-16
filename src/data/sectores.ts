@@ -11,8 +11,11 @@ export interface SectorPerfil {
   body: string;
 }
 
-export const sectoresIntro =
-  "Solo trabajamos con industria. Estos son los perfiles donde nuestro método rinde más.";
+export const sectoresHero = {
+  title: "Solo trabajamos",
+  titleAccent: "con industria.",
+  intro: "Estos son los perfiles donde nuestro método rinde más.",
+} as const;
 
 export const perfiles: SectorPerfil[] = [
   {
@@ -56,7 +59,7 @@ export const automocion = {
     queResuelve: [
       "Reglas de uso seguro alineadas con lo que tu cliente reconoce: los marcos de seguridad de la información del sector (TISAX/VDA ISA) y las exigencias de los sistemas de calidad de automoción (IATF 16949).",
       "Validación humana explícita y registrada en cualquier salida que afecte a calidad.",
-      "Un dossier de evidencias, para que cuando el OEM pregunte cómo gestionáis la IA, tengas un dossier y no una explicación.",
+      "Un dossier de evidencias: herramientas aprobadas, formación registrada y validación humana, listo para enseñar cuando el OEM pregunte cómo gestionáis la IA.",
     ],
   },
   // Guardarraíl obligatorio: visible en la página, no letra pequeña.

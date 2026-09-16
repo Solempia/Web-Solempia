@@ -1,7 +1,7 @@
 /**
  * Contenido de /faq. Fuente: docs/solempia-web-draft.md → PÁGINA: FAQ (completa).
  * Copy literal del draft; no reescribir sin actualizar el draft primero.
- * El teaser de portada usa copy propio (ver home.ts → faqTeaser), no estos items.
+ * La portada ya no lleva teaser de FAQ: duplicaba estas preguntas con otra redacción.
  */
 
 export interface FaqItem {
@@ -27,7 +27,7 @@ export const faqItems: FaqItem[] = [
     id: "precio",
     question: "“¿Cuánto cuesta?”",
     answer:
-      "El diagnóstico tiene precio cerrado según tamaño y número de procesos, y te lo confirmamos antes de empezar. Se descuenta íntegro del piloto si continúas en 30 días. Las fases siguientes se presupuestan con los datos del diagnóstico: la vara es el ahorro anual del proceso, no nuestras horas. Nunca te pediremos firmar un programa grande a ciegas.",
+      "El diagnóstico tiene precio cerrado según tamaño y número de procesos, y te lo confirmamos antes de empezar. Se descuenta íntegro del piloto si continúas en 30 días. Las fases siguientes se presupuestan con los datos del diagnóstico: la vara es el ahorro anual del proceso. Nunca te pediremos firmar un programa grande a ciegas.",
   },
   {
     id: "datos-clientes",
@@ -51,13 +51,13 @@ export const faqItems: FaqItem[] = [
     id: "prohibir",
     question: "“¿Y si simplemente prohibimos la IA?”",
     answer:
-      "Puedes, pero no funciona. El uso no desaparece: se esconde. La gente sigue usándola desde el móvil, sin registro y sin reglas, que es el peor de los escenarios. La alternativa realista es un carril oficial igual de cómodo que el clandestino: cuentas de empresa, reglas claras y alguien que responde.",
+      "Puedes, pero no funciona. El uso no desaparece: se esconde. La gente sigue usándola desde el móvil, sin registro y sin reglas, que es el peor de los escenarios. La alternativa realista es una vía oficial igual de cómoda que la clandestina: cuentas de empresa, reglas claras y alguien que responde.",
   },
   {
     id: "erp",
     question: "“¿Necesitamos un ERP?”",
     answer:
-      "Para empezar, casi seguro que no. Construimos módulos sobre las herramientas que ya usas. Si algún día un ERP tiene sentido, llegarás a esa decisión con los procesos ordenados y datos reales, que es la única forma sensata de implantar uno.",
+      "Para empezar, casi seguro que no. Construimos sobre las herramientas que ya usas. Si algún día un ERP tiene sentido, llegarás a esa decisión con los procesos ordenados y datos reales, que es la única forma sensata de implantar uno.",
   },
   {
     id: "piloto-falla",
@@ -76,11 +76,5 @@ export const faqItems: FaqItem[] = [
     question: "“¿La IA que implantáis usa nuestros datos para entrenarse?”",
     answer:
       "Trabajamos con planes de empresa de los proveedores de IA, que por defecto no entrenan con tus datos, y lo dejamos configurado y documentado. Es una de las diferencias clave con las cuentas personales que tu equipo puede estar usando hoy, donde el entrenamiento suele venir activado por defecto.",
-  },
-  {
-    id: "ayudas",
-    question: "“¿Hay ayudas o subvenciones?”",
-    answer:
-      "Según el caso pueden aplicar programas como Kit Digital o Kit Consulting, y la formación puede bonificarse vía FUNDAE. Te orientamos sobre qué encaja en tu caso; la tramitación depende de cada programa.",
   },
 ];

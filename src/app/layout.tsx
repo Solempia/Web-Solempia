@@ -32,6 +32,10 @@ export default function RootLayout({
   return (
     <html
       lang="es"
+      // globals.css aplica scroll-behavior: smooth para los anchors (#metodo,
+      // #formacion). Sin este atributo, Next lo aplica también al cambiar de
+      // ruta y la navegación se siente lenta.
+      data-scroll-behavior="smooth"
       className={`${geistSans.variable} ${geistMono.variable}`}
     >
       <body

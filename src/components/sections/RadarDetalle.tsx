@@ -63,7 +63,7 @@ export default function RadarDetalle({
 
       <Reveal delay={0.1} className="mt-16">
         <div className="border-l-2 border-accent pl-6 py-1 max-w-2xl">
-          <div className={`${labelCls} mb-3`}>guardarraíl_</div>
+          <div className={`${labelCls} mb-3`}>alcance_</div>
           <p className="font-sans font-medium text-lg md:text-xl -tracking-tight text-ink leading-snug">
             {guardarrail}
           </p>

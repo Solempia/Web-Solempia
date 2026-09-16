@@ -16,8 +16,8 @@ export default function NosotrosPage() {
     <main>
       <PageHeader
         eyebrow="nosotros_"
-        title="Dos personas. Un perfil construye,"
-        titleAccent="el otro lleva el negocio."
+        title={nosotrosHero.title}
+        titleAccent={nosotrosHero.titleAccent}
         intro={nosotrosHero.intro}
       />
       <Socios />

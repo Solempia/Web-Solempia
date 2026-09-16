@@ -16,21 +16,24 @@ Server component. Tres columnas: marca + tagline, índice de rutas (navLinks + C
 Banda de cierre de página: caja centrada con eyebrow, h2 (title + titleAccent), body, CTA primario, secundario opcional y `note` opcional (link mono discreto). Props tipadas con `Cta` de `site.ts`. La usan home, servicios, sectores, automoción, método, FAQ y nosotros.
 
 ### FaqList.tsx
-Lista abierta de preguntas (sin acordeón): `StaggerList` con filas `border-b`, pregunta y respuesta en grid 2/3. La usan la home (3 items de `home.ts`) y `/faq` (13 de `faq.ts`).
+Lista abierta de preguntas (sin acordeón): `StaggerList` con filas `border-b`, pregunta y respuesta en grid 2/3. La usa `/faq` (12 items de `faq.ts`). La home ya no la monta: su teaser se retiró por duplicar estas preguntas.
 
 ### ContactForm.tsx — `'use client'`
-Formulario de `/contacto`: nombre, empresa, sector (select), tamaño (radio en fieldset), proceso (textarea opcional), email, teléfono opcional y checkbox RGPD obligatorio con link a `/privacidad`. POST JSON a `site.n8nWebhookUrl`; con la URL vacía el form muestra error con el email de `site.ts`. Si cambias campos, reconfigura el flujo n8n.
+Formulario de `/contacto`: nombre, empresa, sector (select), tamaño (radio en fieldset), proceso (textarea opcional), email, teléfono opcional y checkbox RGPD obligatorio con link a `/privacidad`. Incluye un honeypot `website` fuera de pantalla que también viaja en el payload. POST JSON a `site.n8nWebhookUrl`; con la URL vacía el form muestra error con el email de `site.ts`. Si cambias campos, reconfigura el flujo n8n (`solempia_contacto_web`): los valida y mapea a la hoja uno por uno.
 
 ### RadarDetalle.tsx
 Cuerpo compartido de las dos páginas del Radar de IA en la Sombra: párrafo de contexto, grid "Qué mapea / Qué resuelve" y **guardarraíl visible** (requisito del draft). La usan `/radar` (data de `radar.ts`) y `/sectores/automocion` (data de `sectores.ts`).
 
 ## sections/home/
-Orden de página: HeroHome → Problema → Cambio → MetodoResumen → Escalera → Garantia → Numero → PorQue → FaqTeaser → CtaBand.
+Orden de página: HeroHome → Caso → Problema → Cambio → MetodoResumen → Escalera → Garantia → ControlIa → CtaBand.
 
 - **HeroHome** (`'use client'`, único con Framer Motion directo): titular del draft, 2 CTAs, línea de contexto mono; lateral con la escalera 01–04.
-- **Problema / Cambio / MetodoResumen / Escalera / PorQue / FaqTeaser**: patrón estándar (SectionWrapper + Eyebrow + h2 con línea accent + Reveal/StaggerList).
+- **Caso**: la prueba, justo bajo el hero. Perfil anonimizado + cifra antes/después + cómo se midió + plazo. **Devuelve `null` mientras `caso` sea `null` en `home.ts`**: mejor portada sin prueba que con una cifra que el visitante no pueda creer.
+- **Problema / Cambio / MetodoResumen / Escalera / ControlIa**: patrón estándar (SectionWrapper + Eyebrow + h2 con línea accent + Reveal/StaggerList). Todos leen su `title`/`titleAccent` de `home.ts`; no volver a escribir headings en el JSX.
 - **Garantia**: caja statement (`border border-line bg-surface`), sin SectionWrapper para controlar el ritmo vertical.
-- **Numero**: caja única con el ejemplo ilustrativo (con **etiqueta obligatoria visible**). Cuando exista el primer caso autorizado y anonimizado, lo sustituye (draft → PENDIENTES).
+- **ControlIa**: única sección de la portada con el ángulo de gobernanza, al final del recorrido. Enlaza a `/radar`.
+
+Retirados en 2026-09: `Numero` (publicaba un ejemplo económico inventado), `PorQue` (se definía por negación) y `FaqTeaser` (duplicaba `/faq`).
 
 ## sections/ por página
 
@@ -40,6 +43,7 @@ Orden de página: HeroHome → Problema → Cambio → MetodoResumen → Escaler
 - `sectores/AutomocionTeaser.tsx` — teaser hacia `/sectores/automocion`, con link mono discreto hacia `/radar` (versión genérica).
 - `metodo/Fases.tsx` — 4 fases editoriales; la 03 con condiciones numeradas; cierra con el principio de fondo.
 - `nosotros/Socios.tsx` — 2 socios + "pequeños a propósito" + dónde estamos.
+- `calculadora/CalculadoraForm.tsx` — `'use client'`. Único componente con estado del sitio. Tres inputs numéricos y un `<output aria-live="polite">` que recalcula al teclear; los valores se acotan a los rangos de `calculadora.ts` para que un valor pegado a mano no dé cifras absurdas. Sin backend: el cálculo corre en el navegador, compatible con `output: 'export'`.
 
 ## ui/
 

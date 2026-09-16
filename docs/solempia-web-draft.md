@@ -13,7 +13,7 @@ fecha: 2026-07-06
 ## 0. Decisiones de posicionamiento (leer antes de maquetar)
 
 1. **Genérico industrial, con automoción como especialización visible.** Decisión de Sebastián (2026-07-06). La auditoría de oferta pedía una sola punta de lanza; se resuelve así: la portada vende UNA promesa para toda pyme industrial (horas recuperadas + IA bajo control), y automoción vive como página de sector propia, donde sí se afila al máximo (Radar de IA en la Sombra, TISAX, IATF). *Actualización (2026-07-10):* el Radar tiene además una versión genérica con URL propia (`/radar`) para campañas dirigidas a cualquier pyme, sin el apellido "industrial"; es la única página del sitio que amplía el público. La página de automoción sigue siendo la versión afilada y ambas se enlazan entre sí.
-2. **Cero nombres de clientes y cero testimonios.** No hay casos cerrados publicables todavía. La prueba se construye con: garantía en titular, método con nombre, ejemplo económico trabajado (marcado como ilustrativo) y credenciales reales del equipo. Cuando exista un caso autorizado y anonimizado, sustituye al ejemplo ilustrativo.
+2. ~~**Cero nombres de clientes y cero testimonios.**~~ **DEROGADA (2026-09-16).** Era correcta mientras no hubo casos cerrados: la prueba se construía con garantía en titular, método con nombre, ejemplo económico marcado como ilustrativo y credenciales del equipo. Con clientes reales ya en cartera, esa ausencia de prueba pasó a ser el mayor lastre de conversión del sitio. El ejemplo ilustrativo de 83.200 € se ha retirado de la portada y su lugar (sección 2, justo bajo el hero) lo ocupa un caso real anonimizado con cifra medida antes y después. Mientras no se rellene `caso` en `src/data/home.ts`, la sección no se renderiza: es preferible una portada sin prueba a una portada con una cifra que el visitante no puede creer.
 3. **Lenguaje de riesgo calibrado.** Siempre "reducir y hacer demostrable el riesgo", nunca "eliminar" ni "tus datos jamás saldrán". Nunca prometer cumplimiento legal: Solempia diseña y documenta, el asesor legal del cliente valida.
 4. **Precios públicos: solo la puerta de entrada.** El diagnóstico y la formación llevan precio orientativo; las fases posteriores se presupuestan con los datos del diagnóstico. Eso no es una evasiva: es el diferenciador ("nunca a ciegas") y así se cuenta.
 5. **Sin jerga de IA como gancho.** La palabra IA aparece donde es sustancia (uso seguro, formación obligatoria), no como reclamo de portada. Se abre por el valor: horas, margen, control.
@@ -25,21 +25,31 @@ fecha: 2026-07-06
 
 ## Hero
 
+**Promesa única de la portada (2026-09-16):** horas y margen. El control de IA deja de competir en el hero y baja a una sección propia al final del recorrido. Motivo: el hero anterior perseguía dos dolores a la vez ("Tu equipo pierde horas en tareas manuales. **Y** ya usa IA por su cuenta"), con dos urgencias distintas y puede que dos compradores distintos; el visitante no sabía en cinco segundos qué se le vendía.
+
 **Titular:**
-> Tu equipo pierde horas en tareas manuales. Y ya usa IA por su cuenta.
+> El papeleo se come tu margen. Te decimos cuánto, con tus números.
 
 **Subtítulo:**
-> Solempia automatiza los procesos que consumen el margen de tu pyme industrial y pone el uso de IA bajo control demostrable. Se empieza por un diagnóstico corto con garantía: si no encontramos una oportunidad cuantificada de mejora, no lo pagas.
+> Automatizamos los procesos que consumen las horas de tu equipo. Se empieza por un diagnóstico de dos semanas con garantía: si no encontramos una oportunidad cuantificada, no lo pagas.
 
 **CTA primario:** `Pedir el diagnóstico`
 **CTA secundario:** `Ver cómo trabajamos`
 
 **Línea de contexto (bajo los botones):**
-> Para empresas industriales y técnicas de 5 a 100 personas: mantenimiento, instalaciones, calidad, logística, metalmecánica, automoción, construcción y agroindustria.
+> Empresas industriales y técnicas de 5 a 100 personas: mantenimiento, instalaciones, calidad, logística, metalmecánica, automoción, construcción y agroindustria.
 
-*Alternativas de titular (elegir una, no mezclar):*
-- "Funcionáis, vendéis y tenéis clientes. Pero por dentro todo depende de Excel, papel y la memoria de dos personas."
-- "La IA que no ves es la única que no puedes controlar." *(más afilado; funciona mejor si la home se inclina al ángulo de gobernanza)*
+*Alternativas de titular trabajadas (elegir una, no mezclar):*
+- "Cada semana tu equipo pierde horas en papeleo. / Las contamos y las recuperamos."
+- "Tus técnicos, haciendo trabajo de técnico. / El papeleo, automatizado."
+
+---
+
+## Sección: El caso (prueba)
+
+Va inmediatamente bajo el hero. Es la sección que más mueve la conversión y la única que no se puede redactar sin datos: requiere un cliente real con cifra medida antes y después, perfil anonimizado, método de medición y plazo. Mientras `caso` valga null en `src/data/home.ts`, la sección no se renderiza.
+
+**Encabezado:** Un proceso real, medido antes y después.
 
 ---
 
@@ -47,27 +57,32 @@ fecha: 2026-07-06
 
 **Encabezado:** Te suena, ¿verdad?
 
-Partes de trabajo en papel. Informes que se montan a mano cada semana. Fotos del móvil que nadie encuentra después. El seguimiento comercial en una libreta. Los costes reales, sin calcular. Y la información clave del negocio en la cabeza de una sola persona.
+Lista escaneable, no párrafos. Una línea por síntoma:
 
-Nada de eso sale en la cuenta de resultados con nombre propio. Se manifiesta de otra forma: horas de gente cualificada haciendo trabajo administrativo, errores que se repiten, auditorías que cuestan una semana de preparar y decisiones tomadas a ojo.
-
-Y mientras tanto hay un problema nuevo que casi nadie tiene en el radar: tu equipo ya usa IA. Desde cuentas personales, con información de la empresa y de tus clientes, sin que nadie haya decidido que eso esté bien. Prohibirlo no lo arregla. Lo vuelve invisible.
+- Partes de trabajo en papel que alguien pasa a limpio.
+- Informes que se montan a mano cada semana.
+- Fotos del móvil que nadie encuentra tres meses después.
+- Costes por trabajo calculados a ojo.
+- El seguimiento comercial en una libreta.
+- Media empresa dentro de la cabeza de una sola persona.
 
 **Cierre de sección:**
-> El problema no es solo de eficiencia. Es de control.
+> Estas horas no salen en la cuenta de resultados. Salen en las nóminas.
+
+*El tercer párrafo de la versión anterior (la IA en la sombra) se ha movido a su propia sección al final del recorrido, para que no compita con la promesa de horas.*
 
 ---
 
 ## Sección: Lo que cambia
 
-**Encabezado:** Cómo se ve tu empresa después
+**Encabezado:** Cómo se ve tu empresa dentro de seis meses
 
-- Sabes cuántas horas cuesta cada proceso y cuánto vale recuperarlas. Con tus números, no con promedios de internet.
-- Los partes, informes y documentos que hoy se hacen a mano se generan solos. Tu equipo revisa y valida, no teclea.
+- Sabes cuántas horas cuesta cada proceso y cuánto vale recuperarlas. Con tus números.
+- Los partes e informes que hoy se teclean se generan solos. Tu equipo revisa y valida.
 - Respondes antes a tus clientes, porque la información está donde tiene que estar.
-- Y cuando un cliente o un auditor pregunte cómo gestionáis la IA, tienes algo que enseñar: herramientas aprobadas, reglas claras, formación registrada.
+- Tu gente cualificada dedica la semana a trabajo cualificado.
 
-Sin implantar un ERP. Sin proyectos de seis meses. Sin informes que se quedan en un cajón.
+Sin implantar un ERP.
 
 ---
 
@@ -75,15 +90,13 @@ Sin implantar un ERP. Sin proyectos de seis meses. Sin informes que se quedan en
 
 **Encabezado:** Primero ordenar. Después automatizar. La IA, solo donde aporta.
 
-La mayoría de los proyectos de "IA para empresas" fracasan por el orden, no por la tecnología. Se intenta poner una capa inteligente sobre procesos desordenados, y sale caro dos veces.
+La mayoría de los proyectos de "IA para empresas" fracasan por el orden, no por la tecnología. Se pone una capa inteligente sobre procesos desordenados y sale caro dos veces.
 
-Nosotros trabajamos al revés:
+1. **Ordenar (60 %).** Entender el proceso real, medirlo y estructurar la información. Aquí vive la mayor parte del ahorro.
+2. **Automatizar (30 %).** Conectar las herramientas que ya usas para que los flujos corran solos.
+3. **Aplicar IA (10 %).** Solo en el tramo donde aporta, con una persona cualificada validando y un registro de cada decisión.
 
-1. **Ordenar.** Entender el proceso real, medirlo y estructurar la información. Aquí vive el 60 % del valor.
-2. **Automatizar.** Conectar las herramientas que ya usas para que los flujos corran solos. Otro 30 %.
-3. **Aplicar IA.** Solo en el tramo donde de verdad aporta, con una persona cualificada validando el resultado y un registro de cada decisión. Es el 10 % final, y solo funciona si los dos pasos anteriores existen.
-
-Una regla que aplicamos a todo lo que construimos: si quitas la IA y el sistema sigue funcionando, está bien construido.
+> Si quitas la IA y el sistema sigue funcionando, está bien construido.
 
 **CTA intermedio:** `Cuéntanos tu proceso más pesado`
 
@@ -93,20 +106,22 @@ Una regla que aplicamos a todo lo que construimos: si quitas la IA y el sistema 
 
 **Encabezado:** Cada paso se presupuesta con los datos del anterior. Nunca a ciegas.
 
-**1. Diagnóstico operativo** — *la puerta de entrada*
-En unas dos semanas medimos tus procesos candidatos, cuantificamos horas y coste, mapeamos qué información toca qué herramienta (incluida la IA que ya se usa sin control) y te recomendamos por dónde empezar, con un caso económico de supuestos visibles. Se descuenta íntegro del siguiente paso si continúas.
+*En portada, versión comprimida: el detalle completo vive en `/servicios` y no se repite aquí.*
+
+**1. Diagnóstico operativo** — *por aquí se empieza*
+Dos semanas. Medimos tus procesos, cuantificamos horas y coste, y te decimos por dónde empezar. Se descuenta entero del siguiente paso.
 
 **2. Piloto acotado**
-Un solo proceso, construido y desplegado sobre tus herramientas actuales, con métrica medida antes y después y un criterio claro de continuar o parar. Si no funciona, se sabe pronto y barato.
+Un solo proceso, construido sobre tus herramientas actuales. Métrica antes y después, y criterio de continuar o parar pactado de antemano.
 
-**3. Módulo implementado + uso seguro de IA**
-El piloto validado se convierte en un módulo en producción, con tu equipo formado para operarlo. Donde entra la IA, entra con reglas: qué datos pueden subirse, a qué herramientas, y quién valida qué.
+**3. El proceso en producción**
+El piloto validado pasa a producción, con tu equipo formado para operarlo. Donde entra la IA, entra con reglas de datos.
 
 **4. Mantenimiento y mejora continua**
-Soporte mensual, mejoras sobre lo implementado y actualización de las reglas cuando cambia una herramienta o la normativa. Para que el sistema no se degrade a los seis meses.
+Soporte mensual, mejoras sobre lo implementado y actualización de reglas cuando cambia una herramienta o la normativa.
 
 **Nota bajo la escalera:**
-> No vendemos el programa completo el primer día. Vendemos el diagnóstico. Lo demás se decide con datos encima de la mesa.
+> Vendemos el diagnóstico. Lo demás se decide con datos encima de la mesa.
 
 ---
 
@@ -114,50 +129,34 @@ Soporte mensual, mejoras sobre lo implementado y actualización de las reglas cu
 
 **Encabezado:** Si el diagnóstico no te descubre nada, no lo pagas.
 
-Si al terminar el diagnóstico no hemos identificado al menos una oportunidad cuantificada de mejora y riesgos que no tenías mapeados, no pagas. Y si ya habías abonado algo, se devuelve íntegro en cinco días laborables.
+Si al terminar no hemos identificado al menos una oportunidad cuantificada de mejora, no pagas. Si ya habías abonado algo, se devuelve íntegro en cinco días laborables.
 
-Podemos ofrecer esto porque el diagnóstico casi siempre encuentra más de lo que el gerente espera. Las horas perdidas no se ven desde dentro; por eso siguen ahí.
-
----
-
-## Sección: El número (ejemplo ilustrativo)
-
-**Encabezado:** ¿Cuánto cuesta no hacer nada?
-
-Un ejemplo trabajado, con cifras conservadoras. No es un caso real: es la cuenta que haremos contigo, con tus datos.
-
-> 8 personas cualificadas dedicando 5 horas a la semana a tareas administrativas, a un coste cargado de 40 €/hora:
->
-> **83.200 € al año en capacidad perdida.**
->
-> Recuperar entre un 25 y un 35 % de ese tiempo (rango conservador para procesos documentales) son **20.800 a 29.120 € al año**. Ese es el tipo de número que el diagnóstico calcula con tus datos, y contra el que se decide cualquier inversión posterior.
-
-**Etiqueta obligatoria junto al bloque:** *Ejemplo ilustrativo con supuestos visibles. Tu diagnóstico usa tus cifras.*
+Podemos ofrecerlo porque el diagnóstico casi siempre encuentra más de lo que el gerente espera. Las horas perdidas se ven mal desde dentro; por eso siguen ahí.
 
 ---
 
-## Sección: Por qué Solempia
+## Sección: Control de IA
 
-- **Solo industria.** No hacemos webs, ni marketing, ni "transformación digital" de todo. Pymes industriales y técnicas, con operarios, partes, informes y clientes B2B.
-- **Pilotos de bajo riesgo.** No firmas una implantación completa. Firmas un paso corto, con precio cerrado y métrica de éxito. Si no compensa, paras.
-- **Sin hype.** La IA es la capa más pequeña del sistema, y lo decimos nosotros, que la implantamos. Lo que se vende es el proceso ordenado y el control.
-- **Implementación real.** Construimos, formamos a tu equipo y transferimos el conocimiento. No entregamos un PDF de recomendaciones y desaparecemos.
-- **Quien construye da la cara.** Somos un equipo pequeño con perfiles complementarios. Hablas con quien diseña y monta tu solución, no con un comercial intermediario.
+*Última sección antes del cierre. Recoge el material que antes estaba disperso por toda la portada. Aquí el ángulo de gobernanza funciona como diferenciador que cierra la venta; en el hero funcionaba como una segunda promesa que la diluía.*
+
+**Encabezado:** Y hay un problema nuevo que casi nadie tiene en el radar.
+
+Tu equipo ya usa IA. Desde cuentas personales, con información de la empresa y de tus clientes, sin que nadie haya decidido que eso esté bien.
+
+Prohibirlo lo vuelve invisible. La alternativa es un carril oficial: cuentas de empresa, reglas claras sobre qué se sube y qué no sale nunca, y formación registrada.
+
+**Cierre:**
+> Cuando un cliente o un auditor pregunte cómo gestionáis la IA, tienes un dossier que enseñar.
+
+**Enlace:** `Ver el Radar de IA en la Sombra →` (página `/radar`)
 
 ---
 
-## Sección: FAQ breve (portada)
+## Secciones retiradas de la portada (2026-09-16)
 
-**"Mi equipo ya usa ChatGPT. ¿Para qué os necesito?"**
-Justo por eso. El valor no está en el modelo, está en el proceso: medición, reglas de datos, repetibilidad y trazabilidad. Es la diferencia entre "alguien se apaña con la IA" y un sistema que puedes defender ante un cliente o una auditoría.
-
-**"¿Esto no lo puede hacer mi informático?"**
-IT implanta controles, y bien. Pero decidir qué proceso merece inversión, con qué datos y con qué criterio de validación cruza operaciones, finanzas y calidad. Ese cruce es nuestro trabajo, y lo hacemos con IT, no en su lugar.
-
-**"¿Garantizáis el cumplimiento del Reglamento de IA?"**
-No, y desconfía de quien te lo garantice. Diseñamos y documentamos para reducir el riesgo y hacerlo demostrable; la validación legal es de tu asesor. Lo que sí te llevas es evidencia ordenada: reglas, formación registrada y controles.
-
-**Enlace:** `Ver todas las preguntas →` (página FAQ)
+- **El número (ejemplo ilustrativo de 83.200 €).** Le daba el sitio de honor a una cifra inventada y etiquetada como tal. Lo sustituye la sección *El caso*.
+- **Por qué Solempia (5 puntos).** Cuatro de los cinco se definían por negación ("no hacemos webs", "no firmas", "no entregamos un PDF"), y sus argumentos ya viven en el caso, la garantía y la sección de control.
+- **FAQ breve de portada.** Duplicaba tres preguntas de `/faq` con distinta redacción: quien leía ambas veía la misma objeción respondida dos veces de forma diferente.
 
 ---
 
@@ -165,7 +164,7 @@ No, y desconfía de quien te lo garantice. Diseñamos y documentamos para reduci
 
 **Encabezado:** Empieza por saber cuánto te cuesta el papeleo.
 
-Una llamada de 20 minutos. Nos cuentas tu proceso más pesado, te decimos si tiene sentido un diagnóstico y te damos precio cerrado antes de empezar. Sin compromiso y sin presentaciones de 40 diapositivas.
+Una llamada de 20 minutos. Nos cuentas tu proceso más pesado y te decimos si tiene sentido un diagnóstico, con precio cerrado antes de empezar.
 
 **CTA:** `Reservar llamada de 20 minutos`
 **Alternativa suave:** `¿Aún no? Empieza por la formación en IA para tu equipo` (enlace a Servicios → Formación)
@@ -175,7 +174,7 @@ Una llamada de 20 minutos. Nos cuentas tu proceso más pesado, te decimos si tie
 # PÁGINA: SERVICIOS
 
 **Intro de página:**
-> Una escalera de cuatro pasos, más una puerta lateral (la formación). Cada paso tiene precio cerrado antes de empezar, y cada paso se presupuesta con los datos del anterior.
+> Cuatro pasos, y la formación por separado. Cada paso tiene precio cerrado antes de empezar, y cada paso se presupuesta con los datos del anterior.
 
 ## 1. Diagnóstico operativo
 
@@ -185,11 +184,11 @@ Una llamada de 20 minutos. Nos cuentas tu proceso más pesado, te decimos si tie
 
 **Qué recibes:**
 - Mapa de horas, perfiles y coste actual de cada proceso analizado.
-- Caso económico con supuestos visibles: ahorro directo, capacidad liberada y plazo de recuperación, por separado y sin inflar.
+- Caso económico con supuestos visibles: ahorro directo, capacidad liberada y plazo de recuperación, cada uno por separado.
 - Mapa de exposición: qué información de la empresa (y de tus clientes) toca qué herramienta hoy, incluida la IA que se usa sin control.
 - Reglas iniciales de uso seguro, listas para distribuir: qué se puede subir, a qué, y qué no sale nunca.
 - Recomendación de un único piloto, con propuesta cerrada de implementación y criterio de continuar o parar.
-- Sesión de decisión con dirección. Termina con un sí o un no, no con un "ya veremos".
+- Sesión de decisión con dirección. Termina con un sí o un no.
 
 **Condiciones:**
 - Precio cerrado según tamaño y número de procesos, confirmado antes de empezar.
@@ -200,22 +199,22 @@ Una llamada de 20 minutos. Nos cuentas tu proceso más pesado, te decimos si tie
 
 **Para quién:** empresas con el diagnóstico hecho, o con un proceso ya medido y un responsable claro.
 
-**Qué hacemos:** construimos y desplegamos la automatización de un único proceso, integrada con las herramientas que ya usas. Sin cambiar tu stack, sin licencias que no necesitas.
+**Qué hacemos:** construimos y desplegamos la automatización de un único proceso, integrada con las herramientas que ya pagas.
 
 **Qué recibes:**
-- El proceso funcionando en tu operación real, no en una demo.
+- El proceso funcionando en tu operación real, con tus datos y tu gente usándolo.
 - Métrica medida antes y después: horas, tiempo de respuesta, retrabajos.
 - Formación de las personas que lo van a usar: qué revisar, qué validar, qué no delegar nunca.
 - Documentación para que tu equipo pueda mantenerlo.
 - Criterio de continuar o parar, pactado antes de construir. Si el número no sale, se para y lo sabes pronto.
 
-**Condiciones:** precio cerrado a partir de los datos del diagnóstico. La vara de medir es el ahorro anual del proceso, no nuestras horas.
+**Condiciones:** precio cerrado a partir de los datos del diagnóstico. El precio se fija contra el ahorro anual del proceso.
 
 ## 3. Programa de uso seguro de IA
 
 **Para quién:** empresas cuyo equipo ya usa IA (lo sepa dirección o no) y que manejan información sensible propia o de clientes.
 
-**Qué hacemos:** convertimos el uso clandestino en un carril oficial. Ni prohibición imposible de vigilar, ni barra libre.
+**Qué hacemos:** convertimos el uso clandestino en uso oficial: herramientas aprobadas, reglas claras y alguien que responde.
 
 **Qué recibes:**
 - Política de uso de IA adaptada a tu empresa, en lenguaje que tu equipo entiende (y tu responsable de calidad puede integrar en su sistema documental).
@@ -224,7 +223,7 @@ Una llamada de 20 minutos. Nos cuentas tu proceso más pesado, te decimos si tie
 - Formación práctica de la plantilla, con casos de vuestro día a día. Cubre la alfabetización en IA que exige el Reglamento de IA de la UE (art. 4).
 - Dossier de evidencias: herramientas aprobadas, formación registrada, validación humana. Lo que enseñas si un cliente o auditor pregunta.
 
-**Importante (y lo decimos tal cual en la web):** el riesgo no se elimina, se reduce y se hace demostrable. Igual que en ciberseguridad. Quien te prometa lo contrario te está vendiendo humo.
+**Importante (y lo decimos tal cual en la web):** el riesgo no se elimina, se reduce y se hace demostrable. Igual que en ciberseguridad.
 
 ## 4. Mantenimiento y mejora continua
 
@@ -242,7 +241,7 @@ Una llamada de 20 minutos. Nos cuentas tu proceso más pesado, te decimos si tie
 
 **El dato:** el Reglamento de IA de la UE obliga a las empresas que usan IA a formar a su personal (alfabetización en IA, art. 4), con supervisión de la AESIA exigible desde agosto de 2026.
 
-**Qué hacemos:** sesión práctica con los casos reales de tu empresa, no un curso genérico de diapositivas. Tu equipo sale sabiendo qué puede hacer con IA, qué no, y por qué. Tú te llevas el registro de formación como evidencia.
+**Qué hacemos:** sesión práctica sobre los casos reales de tu empresa: trabajamos con tus documentos y tus flujos. Tu equipo sale sabiendo qué puede hacer con IA, qué no, y por qué. Tú te llevas el registro de formación como evidencia.
 
 **Por qué es la mejor forma de empezar:** coste bajo, obligación real con fecha, y de paso aflora cómo se está usando la IA de verdad en tu empresa. Muchos clientes descubren ahí que necesitan el diagnóstico.
 
@@ -350,7 +349,7 @@ Con el proceso ordenado y automatizado, la IA entra en el tramo donde de verdad 
 
 ## Fase 4 — Formar y transferir
 
-Formamos a tu equipo para operar el sistema con criterio y autonomía. La capacitación no es un extra: es lo que hace que la mejora sobreviva cuando nosotros no estamos. De paso, cubre la formación en IA que exige la normativa europea.
+Formamos a tu equipo para operar el sistema con criterio y autonomía. La capacitación es lo que hace que la mejora sobreviva cuando nos vamos. De paso, cubre la formación en IA que exige la normativa europea.
 
 **Principio de fondo (visible en la página):**
 > La tecnología potencia a las personas, no las reemplaza. Automatizamos lo repetitivo para que tu gente cualificada haga trabajo cualificado.
@@ -363,18 +362,18 @@ Formamos a tu equipo para operar el sistema con criterio y autonomía. La capaci
 
 **Titular:** Dos personas. Un perfil construye, el otro lleva el negocio.
 
-Solempia la formamos dos socios con perfiles complementarios. No hay capas comerciales de por medio: la persona que analiza tu operación es la misma que diseña y monta la solución.
+Somos dos socios con perfiles complementarios. Quien analiza tu operación es quien diseña la solución y quien la monta. Hablas siempre con las dos personas que hacen el trabajo.
 
 **Sebastián Lazarte** — tecnología y producto.
-Ingeniero de Sistemas especializado en automatización e IA aplicada. Diseña e implementa los módulos: flujos, integraciones, bases de datos y la capa de IA donde aporta. Ha sido docente de Herramientas de IA Aplicada a nivel de postgrado (Universidad de Los Andes, 2025) y ponente en el Hub Boliviano de Inteligencia Artificial. Esa faceta docente no es anécdota: formar al equipo del cliente es una fase del método, y la imparte quien construyó el sistema.
+Ingeniero de Sistemas especializado en automatización e IA aplicada. Diseña y monta: flujos, integraciones, bases de datos y la capa de IA donde aporta. Enseña lo que construye: docente de Herramientas de IA Aplicada a nivel de postgrado (Universidad de Los Andes, 2025) y ponente en el Hub Boliviano de Inteligencia Artificial. La formación de tu equipo es una fase del método y la imparte él.
 
 **Natalia Izquierdo** — negocio y cliente.
-Ingeniera Comercial con especialización en Marketing, MBA en curso en la Universidad de Jaén. Lleva la captación, la comunicación y el acompañamiento del cliente. Ha acompañado a pymes en su digitalización dentro del programa Kit Digital, así que conoce de primera mano las ayudas que pueden abaratar tu proyecto.
+Ingeniera Comercial con especialización en Marketing y MBA por la Universidad de Jaén. Lleva la captación, la comunicación y el acompañamiento del cliente. Ha acompañado a pymes en procesos de digitalización y traduce entre lo que la operación necesita y lo que el negocio puede sostener.
 
-**Por qué somos pequeños a propósito (por ahora):**
-Preferimos pocos clientes bien atendidos a muchos proyectos a medias. Cada implantación genera plantillas y procedimientos que hacen mejor la siguiente. Crecemos cuando la evidencia lo sostiene, no antes. Es el mismo criterio que te vamos a recomendar a ti.
+**Trabajamos con pocos clientes a la vez:**
+Preferimos pocos clientes bien atendidos a muchos proyectos a medias. Cada implantación deja plantillas y procedimientos que hacen mejor la siguiente. Es el mismo criterio que te vamos a recomendar a ti.
 
-**Dónde estamos:** Jaén, Andalucía. Trabajamos en toda España, presencial donde hace falta y en remoto donde no.
+**Dónde estamos:** Jaén, Andalucía. Trabajamos en toda España.
 
 ---
 
@@ -387,7 +386,7 @@ Que le vaya bien a cada persona por separado no es lo mismo que un sistema. Sin 
 IT es imprescindible y trabajamos con él, no en su lugar. Lo que IT no suele poder hacer solo es cruzar operaciones, finanzas y calidad para decidir qué proceso merece inversión, cuánto ahorra y con qué criterio se valida. Ese cruce es el diagnóstico.
 
 **"¿Cuánto cuesta?"**
-El diagnóstico tiene precio cerrado según tamaño y número de procesos, y te lo confirmamos antes de empezar. Se descuenta íntegro del piloto si continúas en 30 días. Las fases siguientes se presupuestan con los datos del diagnóstico: la vara es el ahorro anual del proceso, no nuestras horas. Nunca te pediremos firmar un programa grande a ciegas.
+El diagnóstico tiene precio cerrado según tamaño y número de procesos, y te lo confirmamos antes de empezar. Se descuenta íntegro del piloto si continúas en 30 días. Las fases siguientes se presupuestan con los datos del diagnóstico: la vara es el ahorro anual del proceso. Nunca te pediremos firmar un programa grande a ciegas.
 
 **"No podemos exponer datos de nuestros clientes."**
 Ni deberíais. Por eso el diagnóstico arranca con muestras anonimizadas y una regla clara de qué se comparte y qué no. Y parte del resultado es justamente el mapa de qué datos están saliendo ya, hoy, sin que nadie lo haya decidido.
@@ -399,10 +398,10 @@ Casi nadie las tiene; es normal. Empezamos con rangos estimados con tu equipo y 
 No, y quien te lo garantice no está siendo honesto. Nosotros diseñamos y documentamos para reducir el riesgo y hacerlo demostrable: reglas, formación registrada, controles y evidencias. La validación legal la hace tu asesor. Es la misma lógica que la ciberseguridad: el riesgo se gestiona, no desaparece.
 
 **"¿Y si simplemente prohibimos la IA?"**
-Puedes, pero no funciona. El uso no desaparece: se esconde. La gente sigue usándola desde el móvil, sin registro y sin reglas, que es el peor de los escenarios. La alternativa realista es un carril oficial igual de cómodo que el clandestino: cuentas de empresa, reglas claras y alguien que responde.
+Puedes, pero no funciona. El uso no desaparece: se esconde. La gente sigue usándola desde el móvil, sin registro y sin reglas, que es el peor de los escenarios. La alternativa realista es una vía oficial igual de cómoda que la clandestina: cuentas de empresa, reglas claras y alguien que responde.
 
 **"¿Necesitamos un ERP?"**
-Para empezar, casi seguro que no. Construimos módulos sobre las herramientas que ya usas. Si algún día un ERP tiene sentido, llegarás a esa decisión con los procesos ordenados y datos reales, que es la única forma sensata de implantar uno.
+Para empezar, casi seguro que no. Construimos sobre las herramientas que ya usas. Si algún día un ERP tiene sentido, llegarás a esa decisión con los procesos ordenados y datos reales, que es la única forma sensata de implantar uno.
 
 **"¿Qué pasa si el piloto no funciona?"**
 Que lo sabremos pronto y con poco dinero gastado, porque el criterio de continuar o parar se pacta antes de construir. Si el número no sale, se para. Te quedas con el proceso medido, la métrica y lo aprendido. Eso también es un resultado.
@@ -413,8 +412,27 @@ No. Trabajamos con pymes industriales y técnicas en general. Automoción es nue
 **"¿La IA que implantáis usa nuestros datos para entrenarse?"**
 Trabajamos con planes de empresa de los proveedores de IA, que por defecto no entrenan con tus datos, y lo dejamos configurado y documentado. Es una de las diferencias clave con las cuentas personales que tu equipo puede estar usando hoy, donde el entrenamiento suele venir activado por defecto.
 
-**"¿Hay ayudas o subvenciones?"**
-Según el caso pueden aplicar programas como Kit Digital o Kit Consulting, y la formación puede bonificarse vía FUNDAE. Te orientamos sobre qué encaja en tu caso; la tramitación depende de cada programa.
+---
+
+# PÁGINA: CALCULADORA
+
+*Añadida 2026-09-16. Es el peldaño gratuito que faltaba en la base de la escalera: hasta ahora el escalón más barato (la formación) ya costaba dinero, así que no había nada que diera valor antes de pedirlo. Entrega el mismo cálculo que promete el hero, en 30 segundos y sin hablar con nadie.*
+
+**Titular:** Cuánto te cuesta el papeleo al año.
+
+**Intro:** Tres datos y el número que sale. Es la misma cuenta con la que empieza un diagnóstico, en versión corta y con tus cifras.
+
+**Entradas:** personas que hacen trabajo administrativo · horas a la semana por persona · coste cargado por hora.
+
+**Salida:** coste anual de la capacidad perdida + rango recuperable (25-35 %, lo habitual en procesos documentales).
+
+**Supuestos visibles junto al resultado (obligatorio):** 46 semanas trabajadas al año. Se usan 46 y no 52 a propósito: 52 asume que nadie tiene vacaciones e infla el resultado. Inflar la cifra del cebo, en una marca cuya postura es no inflar cifras, sería el peor sitio para hacerlo.
+
+**Aviso obligatorio y visible:** *Es una estimación con tus supuestos, no una medición. El diagnóstico mide el proceso real y corrige estos números con lo que encuentre.*
+
+**Sin muro de email.** El resultado se ve primero. Pedir el correo antes de dar el número contradice la voz de la marca.
+
+**CTA:** `Pedir el diagnóstico` · `Reservar llamada de 20 minutos`
 
 ---
 
@@ -423,7 +441,15 @@ Según el caso pueden aplicar programas como Kit Digital o Kit Consulting, y la 
 **Titular:** Cuéntanos tu proceso más pesado.
 
 **Texto:**
-> Rellena el formulario o escríbenos. Te respondemos en uno o dos días laborables con una propuesta de llamada de 20 minutos. En esa llamada te decimos, honestamente, si tiene sentido un diagnóstico o si todavía no. Sin compromiso.
+> Rellena el formulario o escríbenos. Te respondemos el mismo día laborable con una propuesta de llamada de 20 minutos. En esa llamada te decimos, honestamente, si tiene sentido un diagnóstico o si todavía no. Sin compromiso.
+
+*El plazo sale de la constante `PLAZO_RESPUESTA` en `src/data/contacto.ts`. Estaba escrito de tres formas y en dos formatos distintos ("uno o dos días laborables" en el intro y en el acuse, "1–2 días laborables" junto al botón).*
+
+**Pantalla posterior al envío:**
+> **Recibido** — Te escribimos el mismo día laborable con una propuesta de hora.
+> Mientras tanto, ve pensando qué proceso os come más tiempo y cuántas personas lo tocan. Es por donde empieza la llamada.
+
+*Antes repetía casi literalmente el texto del intro, que el visitante acababa de leer, y cerraba con "Sin compromiso". Ese "sin compromiso" se queda en el intro, donde la duda existe; después de enviar ya no tranquiliza y sugiere que quizá sí lo había (R7). El momento posterior al envío es el de mayor atención de la visita: se usa para preparar la llamada.*
 
 **Campos del formulario:**
 - Nombre
@@ -435,7 +461,7 @@ Según el caso pueden aplicar programas como Kit Digital o Kit Consulting, y la 
 - Casilla RGPD + enlace a política de privacidad
 
 **Bajo el formulario:**
-> ¿Prefieres empezar más pequeño? La formación en IA para tu equipo es la puerta de entrada de menor coste, y cubre una obligación legal con fecha. `Ver la formación →`
+> ¿Prefieres empezar más pequeño? La formación en IA para tu equipo es lo más barato por lo que puedes empezar, y cubre una obligación legal con fecha. `Ver la formación →`
 
 ---
 

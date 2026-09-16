@@ -7,11 +7,11 @@ export default function Cambio() {
   return (
     <SectionWrapper>
       <Reveal className="mb-16">
-        <Eyebrow>después_</Eyebrow>
+        <Eyebrow>resultado_</Eyebrow>
         <h2 className="mt-5 font-sans font-medium text-4xl md:text-5xl -tracking-tight leading-[1.1]">
-          Cómo se ve tu empresa
+          {cambio.title}
           <br />
-          <span className="text-accent">después</span>
+          <span className="text-accent">{cambio.titleAccent}</span>
         </h2>
       </Reveal>
 

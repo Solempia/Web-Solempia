@@ -6,7 +6,7 @@ export default function SectorGrid() {
   return (
     <div className="px-6 max-w-6xl mx-auto pb-32 md:pb-40">
       <Reveal className="mb-12">
-        <Eyebrow>a quién servimos_</Eyebrow>
+        <Eyebrow>para quién_</Eyebrow>
       </Reveal>
 
       <StaggerList className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-line border border-line">

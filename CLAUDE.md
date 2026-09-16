@@ -46,14 +46,15 @@ portafolio/
 
 | Ruta | Contenido |
 |---|---|
-| `/` | Home: hero → problema → cambio → método 60/30/10 → escalera → garantía → número (ejemplo ilustrativo) → por qué → FAQ teaser → CTA |
+| `/` | Home: hero → caso (prueba) → problema → cambio → método 60/30/10 → escalera → garantía → control de IA → CTA |
 | `/servicios` | Escalera de 4 pasos + formación (`#formacion`) |
 | `/sectores` | 5 perfiles industriales + teaser automoción |
 | `/sectores/automocion` | Radar de IA en la Sombra, versión automoción/OEM (URL propia para campañas) |
 | `/radar` | Radar de IA en la Sombra, versión genérica para cualquier pyme — única página que no se limita a industria (URL propia para campañas) |
 | `/metodo` | 4 fases (ordenar / automatizar / aplicar IA / formar) |
+| `/calculadora` | Peldaño gratuito de la escalera: coste anual del papeleo con 3 datos, cálculo en cliente, sin registro |
 | `/nosotros` | Los 2 socios + "pequeños a propósito" |
-| `/faq` | 13 preguntas completas |
+| `/faq` | 12 preguntas completas |
 | `/contacto` | Formulario (webhook n8n) + vías directas |
 | `/aviso-legal` · `/privacidad` · `/cookies` | Placeholders legales, `noindex` hasta validar con gestoría |
 
@@ -119,13 +120,14 @@ text-bronze    (#6B5536 — segunda tinta cálida: códigos, marginalia; no es C
 |---|---|
 | Cambiar marca, WhatsApp, email, redes, webhook del formulario | `src/data/site.ts` |
 | Cambiar los textos de botón (4 canónicos) | `ctas` en `src/data/site.ts` |
-| Editar el hero, la garantía o el ejemplo económico | `src/data/home.ts` |
+| Editar el hero, la garantía o la sección de control de IA | `src/data/home.ts` |
 | Editar un servicio de la escalera o la formación | `src/data/servicios.ts` |
 | Editar sectores o el Radar versión automoción | `src/data/sectores.ts` |
 | Editar el Radar genérico (`/radar`) | `src/data/radar.ts` |
 | Editar las fases del método | `src/data/metodo.ts` |
+| Cambiar los supuestos de la calculadora (semanas/año, rango recuperable) | `SEMANAS_ANIO` y `RECUPERACION` en `src/data/calculadora.ts` |
 | Editar bios del equipo | `src/data/nosotros.ts` |
-| Añadir/editar una pregunta del FAQ | `src/data/faq.ts` (portada: `faqTeaser` en `home.ts`) |
+| Añadir/editar una pregunta del FAQ | `src/data/faq.ts` (la portada ya no lleva teaser de FAQ) |
 | Cambiar opciones del formulario (sector/tamaño) | `src/data/contacto.ts` + reconfigurar flujo n8n |
 | Cambiar el menú | `navLinks` en `src/data/site.ts` |
 | Cambiar colores | `src/app/globals.css` (`@theme`) + `docs/design-tokens.md` (sincronizar) |
@@ -134,7 +136,7 @@ text-bronze    (#6B5536 — segunda tinta cálida: códigos, marginalia; no es C
 | Cambiar favicon / apple icon / imagen OG | `src/app/{icon,apple-icon,opengraph-image}.tsx` (ImageResponse, se generan en build; el favicon usa marca simplificada de 4 nodos — la malla completa se empasta <20px) |
 | Añadir una página nueva | `src/app/<ruta>/page.tsx` (usar `ui/PageHeader` + `sections/CtaBand`), data en `src/data/`, añadir a `navLinks` y `src/app/sitemap.ts` |
 | Publicar el texto legal definitivo | `src/app/{aviso-legal,privacidad,cookies}/page.tsx` (quitar `noindex`, añadir al sitemap) |
-| Publicar el primer caso real autorizado | sustituir `numero` en `src/data/home.ts` y adaptar `Numero.tsx` (draft → PENDIENTES) |
+| Publicar el primer caso real autorizado | rellenar `caso` en `src/data/home.ts` (hoy `null`, y con `null` la sección no se renderiza) |
 
 ---
 

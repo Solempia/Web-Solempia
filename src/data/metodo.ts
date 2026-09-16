@@ -64,7 +64,7 @@ export const fases: Fase[] = [
     code: "04",
     name: "Formar y transferir",
     paragraphs: [
-      "Formamos a tu equipo para operar el sistema con criterio y autonomía. La capacitación no es un extra: es lo que hace que la mejora sobreviva cuando nosotros no estamos. De paso, cubre la formación en IA que exige la normativa europea.",
+      "Formamos a tu equipo para operar el sistema con criterio y autonomía. La capacitación es lo que hace que la mejora sobreviva cuando nos vamos. De paso, cubre la formación en IA que exige la normativa europea.",
     ],
   },
 ];

@@ -8,11 +8,11 @@ export default function Escalera() {
   return (
     <SectionWrapper id="escalera">
       <Reveal className="mb-16 max-w-3xl">
-        <Eyebrow>escalera_</Eyebrow>
+        <Eyebrow>pasos_</Eyebrow>
         <h2 className="mt-5 font-sans font-medium text-4xl md:text-5xl -tracking-tight leading-[1.1]">
-          Cada paso se presupuesta con los datos del anterior.
+          {escalera.title}
           <br />
-          <span className="text-accent">Nunca a ciegas.</span>
+          <span className="text-accent">{escalera.titleAccent}</span>
         </h2>
       </Reveal>
 

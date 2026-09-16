@@ -3,7 +3,7 @@ import PageHeader from "@/components/ui/PageHeader";
 import ServicioBloque from "@/components/sections/servicios/ServicioBloque";
 import Formacion from "@/components/sections/servicios/Formacion";
 import CtaBand from "@/components/sections/CtaBand";
-import { escalones, serviciosCta } from "@/data/servicios";
+import { escalones, serviciosHero, serviciosCta } from "@/data/servicios";
 
 export const metadata: Metadata = {
   title: "Servicios — Diagnóstico, automatización y uso seguro de IA",
@@ -16,9 +16,9 @@ export default function ServiciosPage() {
     <main>
       <PageHeader
         eyebrow="servicios_"
-        title="Una escalera de cuatro pasos,"
-        titleAccent="más una puerta lateral (la formación)."
-        intro="Cada paso tiene precio cerrado antes de empezar, y cada paso se presupuesta con los datos del anterior."
+        title={serviciosHero.title}
+        titleAccent={serviciosHero.titleAccent}
+        intro={serviciosHero.intro}
       />
 
       <div className="px-6 max-w-6xl mx-auto pb-32 md:pb-40 flex flex-col gap-6">

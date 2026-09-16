@@ -17,7 +17,9 @@ export const site = {
   linkedin: "https://linkedin.com/company/solempia",
   // Webhook n8n al que el formulario de /contacto envía POST JSON.
   // Configurar CORS en el nodo Webhook de n8n para permitir el dominio.
-  n8nWebhookUrl: "",
+  // Workflow: solempia_contacto_web (n8n.solempia.tech, ID cVyIw0tKmDaaPj6n).
+  n8nWebhookUrl:
+    "https://n8n.solempia.tech/webhook/solempia-contacto-4f9c2e81a6",
   copyrightYear: 2026,
 } as const;
 
@@ -25,6 +27,7 @@ export const navLinks = [
   { href: "/servicios", label: "Servicios" },
   { href: "/sectores", label: "Sectores" },
   { href: "/metodo", label: "Método" },
+  { href: "/calculadora", label: "Calculadora" },
   { href: "/nosotros", label: "Nosotros" },
   { href: "/faq", label: "FAQ" },
 ] as const;
