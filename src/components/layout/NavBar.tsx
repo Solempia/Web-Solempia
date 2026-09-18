@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Logo from "@/components/ui/Logo";
 import Button from "@/components/ui/Button";
-import { ctas, navLinks, site } from "@/data/site";
+import { navLinks, site } from "@/data/site";
 
 /** Con trailingSlash el pathname puede llegar con "/" final; normalizar antes de comparar. */
 function normalize(path: string) {
@@ -47,7 +47,7 @@ export default function NavBar() {
           <Logo />
         </Link>
 
-        <ul className="hidden md:flex items-center gap-9">
+        <ul className="hidden lg:flex items-center gap-7">
           {navLinks.map(({ href, label }) => (
             <li key={href}>
               <Link
@@ -62,13 +62,13 @@ export default function NavBar() {
         </ul>
 
         <div className="flex items-center gap-3">
-          {/* En pantallas muy estrechas el CTA vive en el panel móvil */}
           <Button
-            href={ctas.diagnostico.href}
+            href="/contacto/#contacto"
+            onClick={closeMenu}
             variant="primary"
-            className="hidden sm:inline-flex px-5 py-2 text-sm"
+            className="px-4 py-2 text-sm"
           >
-            {ctas.diagnostico.label}
+            Contacto
           </Button>
 
           <button
@@ -76,7 +76,7 @@ export default function NavBar() {
             onClick={() => setOpen((o) => !o)}
             aria-expanded={open}
             aria-controls="mobile-nav"
-            className="md:hidden inline-flex items-center justify-center w-10 h-10 -mr-2 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+            className="lg:hidden inline-flex items-center justify-center w-10 h-10 -mr-2 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
           >
             <span className="sr-only">{open ? "Cerrar menú" : "Abrir menú"}</span>
             <span aria-hidden="true" className="flex flex-col gap-1.5 w-5">
@@ -98,7 +98,7 @@ export default function NavBar() {
       {/* Panel móvil */}
       <div
         id="mobile-nav"
-        className={`md:hidden border-b border-line bg-bg ${open ? "" : "hidden"}`}
+        className={`lg:hidden border-b border-line bg-bg ${open ? "" : "hidden"}`}
       >
         <ul className="px-6 py-4 flex flex-col">
           {navLinks.map(({ href, label }) => (
@@ -115,15 +115,6 @@ export default function NavBar() {
               </Link>
             </li>
           ))}
-          <li className="sm:hidden border-t border-line">
-            <Link
-              href={ctas.diagnostico.href}
-              onClick={closeMenu}
-              className="block py-4 text-sm font-medium text-accent hover:text-ink transition-colors"
-            >
-              {ctas.diagnostico.label} →
-            </Link>
-          </li>
         </ul>
       </div>
     </header>

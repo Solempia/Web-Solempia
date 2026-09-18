@@ -1,3 +1,4 @@
+import type { ContactService } from "./contacto";
 import { ctas } from "./site";
 
 /**
@@ -7,6 +8,7 @@ import { ctas } from "./site";
 
 export interface ServicioEscalon {
   code: string;
+  service: ContactService;
   slug: string;
   title: string;
   tag?: string;
@@ -28,6 +30,7 @@ export const serviciosHero = {
 export const escalones: ServicioEscalon[] = [
   {
     code: "01",
+    service: "diagnostico",
     slug: "diagnostico_",
     title: "Diagnóstico operativo",
     tag: "por aquí se empieza",
@@ -51,6 +54,7 @@ export const escalones: ServicioEscalon[] = [
   },
   {
     code: "02",
+    service: "automatizacion",
     slug: "piloto_",
     title: "Piloto de automatización",
     paraQuien:
@@ -70,6 +74,7 @@ export const escalones: ServicioEscalon[] = [
   },
   {
     code: "03",
+    service: "uso-seguro-ia",
     slug: "uso_seguro_",
     title: "Programa de uso seguro de IA",
     paraQuien:
@@ -87,6 +92,7 @@ export const escalones: ServicioEscalon[] = [
   },
   {
     code: "04",
+    service: "mantenimiento",
     slug: "mantenimiento_",
     title: "Mantenimiento y mejora continua",
     paraQuien:

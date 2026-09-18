@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import PageHeader from "@/components/ui/PageHeader";
 import Socios from "@/components/sections/nosotros/Socios";
-import CtaBand from "@/components/sections/CtaBand";
+import ContactSection from "@/components/sections/ContactSection";
 import { nosotrosHero } from "@/data/nosotros";
-import { ctaFinal } from "@/data/home";
 
 export const metadata: Metadata = {
   title: "Nosotros — El equipo de Solempia",
@@ -21,13 +20,7 @@ export default function NosotrosPage() {
         intro={nosotrosHero.intro}
       />
       <Socios />
-      <CtaBand
-        title={ctaFinal.heading}
-        titleAccent={ctaFinal.headingAccent}
-        body={ctaFinal.body}
-        primary={ctaFinal.primary}
-        note={ctaFinal.alt}
-      />
+      <ContactSection sourcePath="/nosotros" links={[{ label: "Ver la formación en IA", href: "/servicios/#formacion" }]} />
     </main>
   );
 }

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import PageHeader from "@/components/ui/PageHeader";
 import RadarDetalle from "@/components/sections/RadarDetalle";
-import CtaBand from "@/components/sections/CtaBand";
+import ContactSection from "@/components/sections/ContactSection";
 import { radar, radarCta } from "@/data/radar";
 
 export const metadata: Metadata = {
@@ -27,14 +27,7 @@ export default function RadarPage() {
         guardarrail={radar.guardarrail}
       />
 
-      <CtaBand
-        title={radarCta.heading}
-        titleAccent={radarCta.headingAccent}
-        body={radarCta.body}
-        primary={radarCta.primary}
-        secondary={radarCta.secondary}
-        note={radarCta.note}
-      />
+      <ContactSection sourcePath="/radar" links={[radarCta.note]} />
     </main>
   );
 }

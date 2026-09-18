@@ -5,7 +5,7 @@ Cuatro grupos: `layout/` (chrome), `sections/` (secciones compartidas y por pág
 ## layout/
 
 ### NavBar.tsx — `'use client'`
-Header fijo. Fondo `bg-bg/85 backdrop-blur-sm border-b border-line` tras scrollear 24px (o con el menú móvil abierto). Estado activo por ruta con `usePathname()` + `aria-current="page"` (el subrayado persistente vive en `globals.css`). En `<md` muestra hamburguesa con panel desplegable; los links cierran el panel al navegar. Las rutas vienen de `navLinks` en `src/data/site.ts`.
+Header fijo. Fondo `bg-bg/85 backdrop-blur-sm border-b border-line` tras scrollear 24px (o con el menú móvil abierto). Estado activo por ruta con `usePathname()` + `aria-current="page"` (el subrayado persistente vive en `globals.css`). En `<lg` muestra hamburguesa con panel desplegable; los links cierran el panel al navegar. Las rutas vienen de `navLinks` en `src/data/site.ts`. Contacto está siempre visible, también con el menú móvil cerrado, y usa `ContactLink`.
 
 ### Footer.tsx
 Server component. Tres columnas: marca + tagline, índice de rutas (navLinks + Contacto), contacto/redes. Barra inferior con copyright y `legalLinks` (aviso legal, privacidad, cookies).
@@ -13,19 +13,24 @@ Server component. Tres columnas: marca + tagline, índice de rutas (navLinks + C
 ## sections/ — compartidas
 
 ### CtaBand.tsx
-Banda de cierre de página: caja centrada con eyebrow, h2 (title + titleAccent), body, CTA primario, secundario opcional y `note` opcional (link mono discreto). Props tipadas con `Cta` de `site.ts`. La usan home, servicios, sectores, automoción, método, FAQ y nosotros.
+Banda de cierre de página: caja centrada con eyebrow, h2 (title + titleAccent), body, CTA primario, secundario opcional y `note` opcional (link mono discreto). Props tipadas con `Cta` de `site.ts`. Ya no se usa como cierre comercial; ese lugar corresponde a `ContactSection`.
 
 ### FaqList.tsx
 Lista abierta de preguntas (sin acordeón): `StaggerList` con filas `border-b`, pregunta y respuesta en grid 2/3. La usa `/faq` (12 items de `faq.ts`). La home ya no la monta: su teaser se retiró por duplicar estas preguntas.
 
-### ContactForm.tsx — `'use client'`
-Formulario de `/contacto`: nombre, empresa, sector (select), tamaño (radio en fieldset), proceso (textarea opcional), email, teléfono opcional y checkbox RGPD obligatorio con link a `/privacidad`. Incluye un honeypot `website` fuera de pantalla que también viaja en el payload. POST JSON a `site.n8nWebhookUrl`; con la URL vacía el form muestra error con el email de `site.ts`. Si cambias campos, reconfigura el flujo n8n (`solempia_contacto_web`): los valida y mapea a la hoja uno por uno.
+### ContactSection.tsx y ContactForm.tsx — 'use client'
+Sección única por página comercial, con título contextual y formulario compartido. ContactSection recibe sourcePath, initialService opcional, standalone y links; sincroniza el servicio con la URL mediante useSyncExternalStore, con una instantánea de servidor para la exportación estática. En /contacto usa h1; en el resto, h2.
+
+ContactForm recibe service, onServiceChange y sourcePath. Nombre, email, mensaje y RGPD obligatorios; empresa y teléfono opcionales. Rejilla de dos columnas desde 640px. Honeypot, bloqueo síncrono contra envíos duplicados, espera máxima de 15 segundos y recuperación del error conservando el borrador. Ver docs/contacto.md.
+
+### ui/ContactLink.tsx
+Resuelve enlaces de contacto al ancla local cuando existe formulario. Conserva el borrador usando la API nativa de historial y notifica cambios de servicio a ContactSection. Respeta teclas modificadoras, navegación atrás/adelante y preferencia de movimiento reducido.
 
 ### RadarDetalle.tsx
 Cuerpo compartido de las dos páginas del Radar de IA en la Sombra: párrafo de contexto, grid "Qué mapea / Qué resuelve" y **guardarraíl visible** (requisito del draft). La usan `/radar` (data de `radar.ts`) y `/sectores/automocion` (data de `sectores.ts`).
 
 ## sections/home/
-Orden de página: HeroHome → Caso → Problema → Cambio → MetodoResumen → Escalera → Garantia → ControlIa → CtaBand.
+Orden de página: HeroHome → Caso → Problema → Cambio → MetodoResumen → Escalera → Garantia → ControlIa → ContactSection.
 
 - **HeroHome** (`'use client'`, único con Framer Motion directo): titular del draft, 2 CTAs, línea de contexto mono; lateral con la escalera 01–04.
 - **Caso**: la prueba, justo bajo el hero. Perfil anonimizado + cifra antes/después + cómo se midió + plazo. **Devuelve `null` mientras `caso` sea `null` en `home.ts`**: mejor portada sin prueba que con una cifra que el visitante no pueda creer.

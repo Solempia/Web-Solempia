@@ -64,3 +64,7 @@ Componentes globales: `NavBar` fija con estado activo y menú móvil, `Footer` c
 - [ ] Decidir si se publican precios orientativos del diagnóstico y la formación
 - [ ] Rellenar `caso` en `src/data/home.ts` con el primer caso autorizado y anonimizado (hoy `null`: la sección de prueba de la portada no se renderiza)
 - [ ] Pasada anti-tells de IA tras cualquier edición de copy
+
+## Contacto compartido (2026-09-17)
+
+Las bandas CTA finales se sustituyen por un formulario contextual común en las diez páginas comerciales, incluido /contacto. Contacto permanece visible en la cabecera móvil y de escritorio. Sector y tamaño se retiran del formulario. La especificación y las comprobaciones del receptor n8n están en [contacto.md](contacto.md).

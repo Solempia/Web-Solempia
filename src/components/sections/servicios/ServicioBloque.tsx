@@ -1,3 +1,5 @@
+import Button from "@/components/ui/Button";
+import { contactHref } from "@/data/contacto";
 import { Reveal } from "@/components/ui/Motion";
 import type { ServicioEscalon } from "@/data/servicios";
 
@@ -93,6 +95,9 @@ export default function ServicioBloque({ escalon, delay = 0 }: ServicioBloquePro
             </p>
           </div>
         )}
+        <div className="border-t border-line pt-6 mt-6">
+          <Button href={contactHref(escalon.service)}>Consultar sobre {escalon.title.charAt(0).toLowerCase() + escalon.title.slice(1)}</Button>
+        </div>
       </div>
     </Reveal>
   );

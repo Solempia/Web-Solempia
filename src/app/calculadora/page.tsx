@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import PageHeader from "@/components/ui/PageHeader";
 import CalculadoraForm from "@/components/sections/calculadora/CalculadoraForm";
-import CtaBand from "@/components/sections/CtaBand";
-import { calculadoraHero, calculadoraCta } from "@/data/calculadora";
+import ContactSection from "@/components/sections/ContactSection";
+import { calculadoraHero } from "@/data/calculadora";
 
 export const metadata: Metadata = {
   title: "Calculadora — Cuánto te cuesta el papeleo al año",
@@ -20,13 +20,7 @@ export default function CalculadoraPage() {
         intro={calculadoraHero.intro}
       />
       <CalculadoraForm />
-      <CtaBand
-        title={calculadoraCta.heading}
-        titleAccent={calculadoraCta.headingAccent}
-        body={calculadoraCta.body}
-        primary={calculadoraCta.primary}
-        secondary={calculadoraCta.secondary}
-      />
+      <ContactSection sourcePath="/calculadora" />
     </main>
   );
 }

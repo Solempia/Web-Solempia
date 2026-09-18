@@ -7,8 +7,7 @@ import MetodoResumen from "@/components/sections/home/MetodoResumen";
 import Escalera from "@/components/sections/home/Escalera";
 import Garantia from "@/components/sections/home/Garantia";
 import ControlIa from "@/components/sections/home/ControlIa";
-import CtaBand from "@/components/sections/CtaBand";
-import { ctaFinal } from "@/data/home";
+import ContactSection from "@/components/sections/ContactSection";
 
 /** El layout deja un title de 74 caracteres; la home declara el suyo, más corto. */
 export const metadata: Metadata = {
@@ -28,14 +27,7 @@ export default function Home() {
       <Escalera />
       <Garantia />
       <ControlIa />
-      <CtaBand
-        id="contacto"
-        title={ctaFinal.heading}
-        titleAccent={ctaFinal.headingAccent}
-        body={ctaFinal.body}
-        primary={ctaFinal.primary}
-        note={ctaFinal.alt}
-      />
+      <ContactSection sourcePath="/" links={[{ label: "Ver la formación en IA", href: "/servicios/#formacion" }]} />
     </main>
   );
 }

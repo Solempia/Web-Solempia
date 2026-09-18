@@ -72,7 +72,7 @@ Contenido de `/calculadora`, el peldaño gratuito de la escalera: `calculadoraHe
 
 ## contacto.ts
 
-`contactoHero` + `sectorOptions[9]` + `sizeOptions[4]` + `bajoFormulario` (la alternativa suave hacia `/servicios#formacion`).
+`contactServices` contiene etiquetas, títulos y ayudas; `contactPages` define los valores iniciales por ruta. `ContactService`, `parseContactService`, `normalizePath` y `contactHref` centralizan tipos y enlaces. `PLAZO_RESPUESTA` y `exito` son comunes. Ver `docs/contacto.md`.
 
 ## Caso de estudio
 

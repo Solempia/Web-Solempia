@@ -1,3 +1,4 @@
+import ContactLink from "@/components/ui/ContactLink";
 import Link from "next/link";
 import Logo from "@/components/ui/Logo";
 import { site, navLinks, legalLinks } from "@/data/site";
@@ -31,12 +32,12 @@ export default function Footer() {
               </li>
             ))}
             <li>
-              <Link
+              <ContactLink
                 href="/contacto"
                 className="text-muted hover:text-ink transition-colors"
               >
                 Contacto
-              </Link>
+              </ContactLink>
             </li>
           </ul>
         </nav>

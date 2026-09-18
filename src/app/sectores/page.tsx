@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import PageHeader from "@/components/ui/PageHeader";
 import SectorGrid from "@/components/sections/sectores/SectorGrid";
 import AutomocionTeaser from "@/components/sections/sectores/AutomocionTeaser";
-import CtaBand from "@/components/sections/CtaBand";
-import { sectoresHero, sectoresCta } from "@/data/sectores";
+import ContactSection from "@/components/sections/ContactSection";
+import { sectoresHero } from "@/data/sectores";
 
 export const metadata: Metadata = {
   title: "Sectores — Industria, servicios técnicos y automoción OEM",
@@ -22,13 +22,7 @@ export default function SectoresPage() {
       />
       <SectorGrid />
       <AutomocionTeaser />
-      <CtaBand
-        title={sectoresCta.heading}
-        titleAccent={sectoresCta.headingAccent}
-        body={sectoresCta.body}
-        primary={sectoresCta.primary}
-        secondary={sectoresCta.secondary}
-      />
+      <ContactSection sourcePath="/sectores" links={[{ label: "Ver el Radar de IA", href: "/radar/" }]} />
     </main>
   );
 }

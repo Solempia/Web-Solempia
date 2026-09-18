@@ -436,32 +436,31 @@ Trabajamos con planes de empresa de los proveedores de IA, que por defecto no en
 
 ---
 
-# PÁGINA: CONTACTO
+# CONTACTO COMPARTIDO
 
-**Titular:** Cuéntanos tu proceso más pesado.
+Actualización 2026-09-17: sección al final de las páginas comerciales y en /contacto. Sustituye las bandas finales anteriores. El titular de portada y los códigos decorativos no cambian.
 
-**Texto:**
-> Rellena el formulario o escríbenos. Te respondemos el mismo día laborable con una propuesta de llamada de 20 minutos. En esa llamada te decimos, honestamente, si tiene sentido un diagnóstico o si todavía no. Sin compromiso.
+**Cabecera:** botón Contacto visible en escritorio y móvil. Lleva al formulario de la página actual; desde páginas legales lleva a /contacto/#contacto.
 
-*El plazo sale de la constante `PLAZO_RESPUESTA` en `src/data/contacto.ts`. Estaba escrito de tres formas y en dos formatos distintos ("uno o dos días laborables" en el intro y en el acuse, "1–2 días laborables" junto al botón).*
+**Titular general:** Cuéntanos qué necesitas.
 
-**Pantalla posterior al envío:**
-> **Recibido** — Te escribimos el mismo día laborable con una propuesta de hora.
-> Mientras tanto, ve pensando qué proceso os come más tiempo y cuántas personas lo tocan. Es por donde empieza la llamada.
+**Texto general:** Explícanos qué te gustaría mejorar en tu empresa. Te ayudamos a identificar por dónde empezar.
 
-*Antes repetía casi literalmente el texto del intro, que el visitante acababa de leer, y cerraba con "Sin compromiso". Ese "sin compromiso" se queda en el intro, donde la duda existe; después de enviar ya no tranquiliza y sugiere que quizá sí lo había (R7). El momento posterior al envío es el de mayor atención de la visita: se usa para preparar la llamada.*
+**Campos:** nombre, email y mensaje obligatorios; empresa y teléfono opcionales; selector de servicio; aceptación obligatoria de privacidad. Se retiran sector y tamaño del equipo.
 
-**Campos del formulario:**
-- Nombre
-- Empresa
-- Sector (desplegable: mantenimiento / instalaciones / calidad / metalmecánica / logística / automoción-OEM / construcción / agroindustria / otro industrial)
-- Tamaño (5–20 / 21–50 / 51–100 / más de 100)
-- ¿Cuál es el proceso que más horas os come? (texto libre, opcional)
-- Email · Teléfono (opcional)
-- Casilla RGPD + enlace a política de privacidad
+**Servicios:** Necesito orientación, Diagnóstico operativo, Automatización de procesos, Uso seguro de IA, Mantenimiento, Formación en IA y Radar de IA. Los títulos y ayudas específicos viven en src/data/contacto.ts.
 
-**Bajo el formulario:**
-> ¿Prefieres empezar más pequeño? La formación en IA para tu equipo es lo más barato por lo que puedes empezar, y cubre una obligación legal con fecha. `Ver la formación →`
+**Contexto:** páginas generales empiezan con orientación; calculadora con diagnóstico; Radar y automoción con Radar. Los botones de cada servicio preseleccionan su opción. El visitante puede cambiarla sin perder el mensaje. El parámetro servicio permite compartir la selección, con destino #contacto.
+
+**Diseño:** título y descripción centrados, formulario de ancho máximo 42rem; nombre/empresa y email/teléfono en dos columnas desde 640px. Una columna en móvil. Colores y tipografía de Solempia.
+
+**Envío:** Enviar consulta. Respondemos el mismo día laborable (constante PLAZO_RESPUESTA).
+
+**Confirmación:** Hemos recibido tu consulta. Te respondemos el mismo día laborable para hablar de lo que necesitas.
+
+**Otros enlaces:** email y WhatsApp en todas las secciones; conservar enlaces a formación y entre las dos versiones de Radar donde estaban presentes.
+
+Contrato técnico, validación de n8n y pruebas: docs/contacto.md.
 
 ---
 
@@ -478,7 +477,7 @@ Trabajamos con planes de empresa de los proveedores de IA, que por defecto no en
 | Método | Método — Ordenar, automatizar y aplicar IA donde aporta | El 60 % es información ordenada, el 30 % automatización y el 10 % el modelo. Construimos en ese orden, con validación humana. |
 | Nosotros | Nosotros — El equipo de Solempia | Dos socios, perfil técnico y comercial. Quien analiza tu operación es quien construye la solución. Desde Jaén para toda España. |
 | FAQ | Preguntas frecuentes — Solempia | Precios, datos de clientes, cumplimiento, pilotos que no salen y por qué prohibir la IA no funciona. Respuestas sin rodeos. |
-| Contacto | Contacto — Pide tu diagnóstico | Cuéntanos tu proceso más pesado. Llamada de 20 minutos y precio cerrado antes de empezar. |
+| Contacto | Contacto — Solempia | Consulta sobre automatización de procesos, formación y uso seguro de IA. Cuéntanos qué necesita tu empresa. |
 
 ## Slugs propuestos
 

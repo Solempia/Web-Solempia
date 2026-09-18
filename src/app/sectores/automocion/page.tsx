@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import PageHeader from "@/components/ui/PageHeader";
 import RadarDetalle from "@/components/sections/RadarDetalle";
-import CtaBand from "@/components/sections/CtaBand";
+import ContactSection from "@/components/sections/ContactSection";
 import { automocion, automocionCta } from "@/data/sectores";
 
 export const metadata: Metadata = {
@@ -29,14 +29,7 @@ export default function AutomocionPage() {
         guardarrail={automocion.guardarrail}
       />
 
-      <CtaBand
-        title={automocionCta.heading}
-        titleAccent={automocionCta.headingAccent}
-        body={automocionCta.body}
-        primary={automocionCta.primary}
-        secondary={automocionCta.secondary}
-        note={automocionCta.note}
-      />
+      <ContactSection sourcePath="/sectores/automocion" links={[automocionCta.note]} />
     </main>
   );
 }

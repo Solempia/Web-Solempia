@@ -1,3 +1,5 @@
+import { contactHref } from "./contacto";
+
 export interface Cta {
   label: string;
   href: string;
@@ -15,7 +17,7 @@ export const site = {
   email: "info@solempia.com",
   instagram: "https://instagram.com/solempia",
   linkedin: "https://linkedin.com/company/solempia",
-  // Webhook n8n al que el formulario de /contacto envía POST JSON.
+  // Webhook n8n al que el formulario compartido envía POST JSON.
   // Configurar CORS en el nodo Webhook de n8n para permitir el dominio.
   // Workflow: solempia_contacto_web (n8n.solempia.tech, ID cVyIw0tKmDaaPj6n).
   n8nWebhookUrl:
@@ -43,8 +45,8 @@ export const legalLinks = [
  * Usar siempre estas constantes; no redactar variantes por página.
  */
 export const ctas = {
-  diagnostico: { label: "Pedir el diagnóstico", href: "/contacto" },
-  llamada: { label: "Reservar llamada de 20 minutos", href: "/contacto" },
-  formacion: { label: "Reservar la formación", href: "/contacto" },
-  radar: { label: "Pedir el Radar de IA en la Sombra", href: "/contacto" },
+  diagnostico: { label: "Pedir el diagnóstico", href: contactHref("diagnostico") },
+  llamada: { label: "Reservar llamada de 20 minutos", href: contactHref() },
+  formacion: { label: "Reservar la formación", href: contactHref("formacion") },
+  radar: { label: "Pedir el Radar de IA en la Sombra", href: contactHref("radar") },
 } as const satisfies Record<string, Cta>;

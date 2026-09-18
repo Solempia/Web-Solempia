@@ -21,7 +21,7 @@ export default function PrivacidadPage() {
         <div className="max-w-2xl flex flex-col gap-6 text-base text-muted leading-relaxed">
           <p>
             Los datos que envías por el formulario de contacto (nombre,
-            empresa, sector, tamaño, email y teléfono) se usan únicamente para
+            empresa, email, teléfono, servicio y mensaje, junto con la página de origen) se usan únicamente para
             responder a tu consulta y proponerte una llamada. No se ceden a
             terceros ni se usan para publicidad.
           </p>

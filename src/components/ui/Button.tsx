@@ -1,4 +1,5 @@
 import Link from "next/link";
+import ContactLink from "./ContactLink";
 import type { AnchorHTMLAttributes } from "react";
 
 type Variant = "primary" | "ghost";
@@ -27,6 +28,9 @@ export default function Button({
   const classes = `${base} ${variants[variant]} ${className}`;
   // Rutas internas (/contacto, /caso) → next/link para nav SPA
   // Anchors (#caso) y URLs externas (https://...) → <a>
+  if (/^\/contacto(?:[/?#]|$)/.test(href)) {
+    return <ContactLink href={href} className={classes} {...rest}>{children}</ContactLink>;
+  }
   const isInternalRoute = href.startsWith("/");
 
   if (isInternalRoute) {

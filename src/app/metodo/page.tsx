@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import PageHeader from "@/components/ui/PageHeader";
 import Fases from "@/components/sections/metodo/Fases";
-import CtaBand from "@/components/sections/CtaBand";
-import { metodoHero, metodoCta } from "@/data/metodo";
+import ContactSection from "@/components/sections/ContactSection";
+import { metodoHero } from "@/data/metodo";
 
 export const metadata: Metadata = {
   title: "Método — Ordenar, automatizar y aplicar IA donde aporta",
@@ -20,13 +20,7 @@ export default function MetodoPage() {
         intro={metodoHero.intro}
       />
       <Fases />
-      <CtaBand
-        title={metodoCta.heading}
-        titleAccent={metodoCta.headingAccent}
-        body={metodoCta.body}
-        primary={metodoCta.primary}
-        secondary={metodoCta.secondary}
-      />
+      <ContactSection sourcePath="/metodo" />
     </main>
   );
 }

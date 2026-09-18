@@ -1,52 +1,67 @@
-import type { Cta } from "./site";
-
-/**
- * Contenido de /contacto. Fuente: docs/solempia-web-draft.md → PÁGINA: CONTACTO.
- * Copy literal del draft; no reescribir sin actualizar el draft primero.
- */
-
-/**
- * Plazo de respuesta canónico. Estaba escrito de tres formas distintas y en dos
- * formatos ("uno o dos días" / "1–2 días"); ahora sale de aquí.
- * Si cambia el tiempo real de respuesta, se toca solo esta constante.
- */
+/** Contacto compartido. Fuente editorial: docs/solempia-web-draft.md. */
 export const PLAZO_RESPUESTA = "el mismo día laborable";
 
-export const contactoHero = {
-  title: "Cuéntanos tu proceso más pesado.",
-  body: `Rellena el formulario o escríbenos. Te respondemos ${PLAZO_RESPUESTA} con una propuesta de llamada de 20 minutos. En esa llamada te decimos, honestamente, si tiene sentido un diagnóstico o si todavía no. Sin compromiso.`,
+export const contactServices = {
+  orientacion: {
+    label: "Necesito orientación",
+    title: "Cuéntanos qué necesitas",
+    help: "Explícanos qué te gustaría mejorar en tu empresa. Te ayudamos a identificar por dónde empezar.",
+    placeholder: "¿Qué necesitas resolver o qué te gustaría mejorar?",
+  },
+  diagnostico: {
+    label: "Diagnóstico operativo",
+    title: "Consulta sobre diagnóstico operativo",
+    help: "Cuéntanos qué procesos quieres revisar y qué dificultades encuentra tu equipo.",
+    placeholder: "¿Qué procesos quieres analizar?",
+  },
+  automatizacion: {
+    label: "Automatización de procesos",
+    title: "Consulta sobre automatización de procesos",
+    help: "Describe la tarea que quieres automatizar y las herramientas que utilizáis para hacerla.",
+    placeholder: "¿Qué tarea se repite y con qué programas trabajáis?",
+  },
+  "uso-seguro-ia": {
+    label: "Uso seguro de IA",
+    title: "Consulta sobre uso seguro de IA",
+    help: "Cuéntanos cómo utiliza la IA tu equipo y qué necesitas organizar o proteger.",
+    placeholder: "¿Qué herramientas de IA utilizáis y qué dudas tenéis?",
+  },
+  mantenimiento: {
+    label: "Mantenimiento",
+    title: "Consulta sobre mantenimiento",
+    help: "Indica qué automatizaciones o herramientas necesitan soporte y qué quieres mejorar.",
+    placeholder: "¿Qué sistema necesita mantenimiento o mejoras?",
+  },
+  formacion: {
+    label: "Formación en IA",
+    title: "Consulta sobre formación en IA",
+    help: "Cuéntanos qué necesita aprender tu equipo y cómo os gustaría aplicar la IA en vuestro trabajo.",
+    placeholder: "¿A quién va dirigida la formación y qué os gustaría aprender?",
+  },
+  radar: {
+    label: "Radar de IA",
+    title: "Consulta sobre el Radar de IA",
+    help: "Cuéntanos qué necesitas conocer sobre el uso de IA en tu empresa y los datos que maneja tu equipo.",
+    placeholder: "¿Qué te gustaría revisar sobre el uso de IA en tu empresa?",
+  },
 } as const;
 
-/**
- * Pantalla posterior al envío. Es el momento de mayor atención de la visita, así
- * que dice algo nuevo en lugar de repetir el intro (antes era casi la misma
- * frase, que el visitante leía dos veces seguidas).
- *
- * Sin "Sin compromiso": esa duda es legítima ANTES de enviar y por eso se queda
- * en el intro. Después del envío ya no tranquiliza — sugiere que quizá sí había
- * un compromiso (docs/brand-voice.md → R7).
- */
+export type ContactService = keyof typeof contactServices;
+export const contactPages: Record<string, ContactService> = {
+  "/": "orientacion", "/servicios": "orientacion", "/sectores": "orientacion",
+  "/sectores/automocion": "radar", "/metodo": "orientacion", "/nosotros": "orientacion",
+  "/faq": "orientacion", "/calculadora": "diagnostico", "/radar": "radar", "/contacto": "orientacion",
+};
+export function normalizePath(path: string) {
+  return path.replace(/\/+$/, "") || "/";
+}
+export function parseContactService(value: string | null): ContactService {
+  return value && Object.hasOwn(contactServices, value) ? (value as ContactService) : "orientacion";
+}
+export function contactHref(service?: ContactService) {
+  return `/contacto/${service ? `?servicio=${service}` : ""}#contacto`;
+}
 export const exito = {
-  eyebrow: "Recibido",
-  title: `Te escribimos ${PLAZO_RESPUESTA} con una propuesta de hora.`,
-  body: "Mientras tanto, ve pensando qué proceso os come más tiempo y cuántas personas lo tocan. Es por donde empieza la llamada.",
-} as const;
-
-export const sectorOptions: string[] = [
-  "Mantenimiento",
-  "Instalaciones",
-  "Calidad",
-  "Metalmecánica",
-  "Logística",
-  "Automoción / OEM",
-  "Construcción",
-  "Agroindustria",
-  "Otro industrial",
-];
-
-export const sizeOptions: string[] = ["5–20", "21–50", "51–100", "más de 100"];
-
-export const bajoFormulario = {
-  text: "¿Prefieres empezar más pequeño? La formación en IA para tu equipo es lo más barato por lo que puedes empezar, y cubre una obligación legal con fecha.",
-  cta: { label: "Ver la formación →", href: "/servicios#formacion" } satisfies Cta,
+  title: "Hemos recibido tu consulta",
+  body: `Te respondemos ${PLAZO_RESPUESTA} para hablar de lo que necesitas.`,
 } as const;
